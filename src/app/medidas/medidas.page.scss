@@ -1,0 +1,19 @@
+.center{
+    transform: translate(0, 10%);
+
+    .check-sistema{
+        margin-bottom: 20%;
+    }
+
+}
+
+.floating-button{
+    margin-right: 20px;
+
+    .button-next{
+        margin-bottom: 20px;
+        float: right;
+        border-radius: 10%;
+        width: 200px;
+    }
+}

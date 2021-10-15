@@ -1,0 +1,42 @@
+
+.tab-bar{
+    height: 50px;
+    position: relative;
+    background-color: #f4f5f8 !important;
+    text-align: center !important;
+
+}
+.subtitle{
+    position: relative;
+    top: -11px !important;
+    font-size: 12px;
+}
+
+.filter-icon{
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+.ion-content{
+    height: calc(150vh - (400px + 112px));
+    top: 30px;
+}
+
+ion-icon{
+    font-size: 20px;
+}
+
+.card-border{
+    border: solid thin grey;
+}
+
+.floating-button{
+    margin-right: 20px;
+
+    .button-next{
+        margin-bottom: 20px;
+        float: right;
+        border-radius: 50%;
+    }
+}
+

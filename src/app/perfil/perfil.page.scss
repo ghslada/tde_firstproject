@@ -1,0 +1,98 @@
+
+// ../../assets/img/ecommerce_global_package.jpg
+
+ion-content{
+    --background: url(../../assets/img/package-send-pc.png) no-repeat center top fixed, #46C1D1;
+    background-size: auto;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+@media  (max-width:700px){
+    ion-content{
+        --background: url(../../assets/img/package-send-mobile.png) no-repeat center top fixed, #46C1D1;
+        background-size: auto;
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+}
+
+ion-toolbar{
+    --background: transparent;
+}
+
+.card{
+    margin: 20% auto auto auto;
+    border-radius: 10px;
+
+    .header{
+        height: 200px;
+
+        .avatar{
+            width: 160px;
+            height: 160px;
+            position: relative;
+            margin: 0 auto;
+
+            img{
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                bottom: calc(-1*(80px+4px));
+                border: 8px solid #3880FF;
+                background-color: #fff;
+
+            }
+        }
+    }
+}
+.card-body{
+    background-color: #ffffff;
+    padding: 30px;
+    height: calc(150vh - (400px + 112px));
+    overflow: hidden;
+    border-radius: 7% 7% 0 0;
+
+    
+
+    .user-meta{
+        padding-top: 40px;
+        margin: auto;
+        
+
+        .username{
+            font-size:24px;
+            font-weight: 600;
+            color: #303940;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+        
+    }
+
+}
+
+.bt-sociais{
+    padding-right: 10px;
+    margin-top: 25px;
+    float: left;
+}
+
+.firstLine{
+    margin-top: 20px;
+    
+    .cards{
+        --background: #3880FF;
+        color: #ffffff;
+        padding: 10px;
+        margin: 25px auto 25px auto;
+        width: 80%;
+    }   
+    
+}
+.content-icons{
+    margin-right: 15px;
+}

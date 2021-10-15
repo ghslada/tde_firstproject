@@ -1,0 +1,55 @@
+ion-text{
+    .ion-text-center{
+        border-radius: 30px;
+        border-width: thin;
+        border-style: solid;
+        border-color: #000;
+    }
+}
+
+.check{
+    float: right;
+}
+
+.floating-button{
+    margin-right: 20px;
+
+    .button-next{
+        margin-bottom: 20px;
+        float: right;
+        border-radius: 50%;
+    }
+}
+.cards{
+    .card-border{
+        padding: 20px;
+        width: 350px;
+        height: 250px;
+        border: thin solid #000; 
+        margin-right: 50px;
+        
+    }
+}
+
+.image{
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+}
+
+.button-type{
+    width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 10px;
+
+    .filter-icon{
+        margin-right: 0;
+        float: right;
+        padding-left: 30px;
+        margin-left: 20px;
+    }
+}
+.button-help{
+    width: 10%;
+}

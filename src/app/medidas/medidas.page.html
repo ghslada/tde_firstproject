@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-text-center" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tabAcessorio"><ion-title>Voltar</ion-title></ion-back-button>
+    </ion-buttons>
+    <ion-title>Medidas</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-tabs>
+      <ion-tab-bar class="tab-bar" color="light" slot="fixed">
+        <ion-tab-button class="button-help" layout="icon-end">
+          <ion-label><b>Ajuda para medir</b></ion-label>
+          <ion-icon name="help-circle-outline"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>    
+  </ion-content> 
+</ion-header>
+<ion-content>
+  <div class="center">
+    <div class="check-sistema">
+      <ion-list>
+        <ion-item>
+          <ion-label>Marque se você também deseja <br> adquirir o sistema para essa cortina.</ion-label>
+          <ion-checkbox color="success" value="adicional_sistema" checked slot="start"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    </div>
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          Altura:
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input placehoder="example123@login.com">
+        </ion-input>
+      </ion-item>
+      <div class="item">
+      </div>
+      <ion-item>
+        <ion-label>
+          Largura: (largura do varão ou trilho)
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input placehoder="example123@login.com">
+        </ion-input>
+      </ion-item>
+      <div class="item">
+      </div>
+      <ion-item>
+        <ion-label>
+          Proporção: (padrão: 2m de tecido
+                      <br> para cada 1m de trilho)
+        </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" [min]="1" [max]="3" placehoder="example123@login.com">
+            </ion-input>
+          </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<div class="floating-button">
+  <ion-fab-button class="button-next" routerLink="../tabCarrinho" color="success">Inserir cortina no carrinho</ion-fab-button>
+</div>

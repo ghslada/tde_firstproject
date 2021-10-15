@@ -1,0 +1,15 @@
+.content{
+    margin-top: 15%;
+    border-bottom: grey thin solid;
+    border-top: grey thin solid;
+    background-color: rgb(235, 230, 226);
+}
+.floating-button{
+    margin-right: 20px;
+
+    .button-next{
+        margin-bottom: 20px;
+        float: right;
+        border-radius: 50%;
+    }
+}
