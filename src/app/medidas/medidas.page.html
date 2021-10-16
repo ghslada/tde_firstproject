@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center" color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="tabs/tabAcessorio"><ion-title>Voltar</ion-title></ion-back-button>
+      <ion-back-button defaultHref="tabs/tabTipoCortina"><ion-title>Voltar</ion-title></ion-back-button>
     </ion-buttons>
     <ion-title>Medidas</ion-title>
   </ion-toolbar>
@@ -16,16 +16,9 @@
     </ion-tabs>    
   </ion-content> 
 </ion-header>
+
 <ion-content>
   <div class="center">
-    <div class="check-sistema">
-      <ion-list>
-        <ion-item>
-          <ion-label>Marque se você também deseja <br> adquirir o sistema para essa cortina.</ion-label>
-          <ion-checkbox color="success" value="adicional_sistema" checked slot="start"></ion-checkbox>
-        </ion-item>
-      </ion-list>
-    </div>
     <ion-list>
       <ion-item>
         <ion-label>
@@ -33,7 +26,7 @@
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-input placehoder="example123@login.com">
+        <ion-input type="number" placehoder="example123@login.com">
         </ion-input>
       </ion-item>
       <div class="item">
@@ -44,7 +37,7 @@
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-input placehoder="example123@login.com">
+        <ion-input type="number" placehoder="example123@login.com">
         </ion-input>
       </ion-item>
       <div class="item">
@@ -56,12 +49,13 @@
         </ion-label>
           </ion-item>
           <ion-item>
-            <ion-input type="number" [min]="1" [max]="3" placehoder="example123@login.com">
+            <ion-input type="number" placehoder="example123@login.com">
             </ion-input>
           </ion-item>
     </ion-list>
   </div>
 </ion-content>
+
 <div class="floating-button">
-  <ion-fab-button class="button-next" routerLink="../tabCarrinho" color="success">Inserir cortina no carrinho</ion-fab-button>
+  <ion-fab-button class="button-acessorio" routerLink="../tabAcessorio" color="success">Acessórios</ion-fab-button>
 </div>

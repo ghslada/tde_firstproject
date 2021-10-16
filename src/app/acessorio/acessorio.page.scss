@@ -3,7 +3,36 @@
     border-bottom: grey thin solid;
     border-top: grey thin solid;
     background-color: rgb(235, 230, 226);
+
 }
+
+.obrigatorio{
+
+
+    border-top: grey medium solid;
+    border-bottom: grey medium solid;
+
+    .title{
+        background-color:rgb(231, 215, 71);
+        margin-top: 0;
+    }
+
+    .card-border{
+        border: solid thin grey;
+    }
+}
+
+.opcional{
+    margin-top: 5%;
+    border-top: grey medium solid;
+    border-bottom: grey medium solid;
+
+    .card-border{
+        border: solid thin grey;
+    }
+}
+
+
 .floating-button{
     margin-right: 20px;
 
@@ -11,5 +40,8 @@
         margin-bottom: 20px;
         float: right;
         border-radius: 50%;
+        width: 200px;
     }
+
 }
+

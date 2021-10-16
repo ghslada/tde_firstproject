@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center" color="primary">
   <ion-buttons slot="start">
-    <ion-back-button defaultHref="tabs/tabTipoCortina">Voltar</ion-back-button>
+    <ion-back-button defaultHref="tabs/tabMedidas">Voltar</ion-back-button>
   </ion-buttons>
-    <ion-title> <ion-text style="margin-left: 10px;">Acessório(obrigatório)</ion-text></ion-title>
+    <ion-title> <ion-text style="margin-left: 10px;">Acessórios</ion-text></ion-title>
   </ion-toolbar>
   <ion-content>
     <ion-tabs>
@@ -20,12 +20,81 @@
   <div class="content">
     <div class="aviso">
       <ion-text class="ion-text-center">
-          <b>O acessório é obrigatório, selecione a cor do acessório a ser utilizado no sistema escolhido anteriormente.</b>
+          <b>O acessório pode ser obrigatório, dependendo do sistema escolhido.</b>
         </ion-text>
     </div>
   </div>
+  <br>
+  <div class="obrigatorio">
+    <br>
+    <div class="title">
+      <ion-label><ion-text><b>Obrigatório *</b></ion-text></ion-label>
+      
+    </div>
+    <ion-card class="card-border">
+      <ion-item>
+        <ion-avatar slot="start" style="width: 100px; height: 100px;">
+          <img src="assets/img/ilhos_branco.jpg" alt="">
+        </ion-avatar>
+        <ion-label class="ion-text-wrap">
+          <ion-text color="dark">
+            <h3><b>Ilhós</b></h3>
+            <br>
+            <h5>Cor:<b> branco</b></h5> 
+            <br>
+          </ion-text>
+          <ion-text>
+            <h4>Valor (metro linear de cortina) :</h4> <br>
+            <ion-card-content>
+              <h3 style="font-size: 140%">18,59 R$</h3>
+            </ion-card-content>
+          </ion-text>
+        </ion-label>
+        <ion-button color="warning" fill="clear">
+          <ion-icon size="large" name="checkmark-outline" color="success"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-card-content>
+        <ion-button size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="opcional">
+    <br>
+    
+    <ion-label class="ion-text-center"><ion-text ><b>Opcionais</b></ion-text></ion-label>
+    <ion-card class="card-border">
+      <ion-item>
+        <ion-avatar slot="start" style="width: 100px; height: 100px;">
+          <img src="assets/img/varao.jpg" alt="">
+        </ion-avatar>
+        <ion-label class="ion-text-wrap">
+          <ion-text color="dark">
+            <h3><b>Varão (sem suportes)</b></h3>
+            <br>
+            <h5>Cor:<b> branco</b></h5> 
+            <br>
+          </ion-text>
+          <ion-text>
+            <h4>Valor (metro linear) :</h4> <br>
+            <ion-card-content>
+              <h3 style="font-size: 140%">22,99 R$</h3>
+            </ion-card-content>
+          </ion-text>
+        </ion-label>
+        <ion-button color="warning" fill="clear">
+          <ion-icon size="large" name="checkmark-outline" color="success"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-card-content>
+        <ion-button size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+    
 </ion-content>
+
 <div class="floating-button">
-  <ion-fab-button class="button-next" routerLink="../tabMedidas" color="success">Next</ion-fab-button>
+  <ion-fab-button class="button-next" routerLink="../tabCarrinho" color="success">Inserir pedido no carrinho</ion-fab-button>
 </div>
   
