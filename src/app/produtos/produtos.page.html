@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center" color="primary">
-    <ion-title>Produtos</ion-title>
+    <ion-title>Tecido</ion-title>
   </ion-toolbar>
   <ion-content>
     <ion-tabs>
@@ -10,12 +10,12 @@
             <ion-icon class="filter-icon" name="funnel-outline"></ion-icon>
             <ion-label><b>Tipo de tecido</b></ion-label>
             <ion-select interface="popover">
-              <ion-select-option value="blackout">Blackout</ion-select-option>
+              <!-- <ion-select-option value="blackout">Blackout</ion-select-option> -->
               <ion-select-option value="voil">Voil</ion-select-option>
               <ion-select-option value="forro">Forro</ion-select-option>
-              <ion-select-option value="linho">Linho</ion-select-option>
-              <ion-select-option value="oxford">Oxford</ion-select-option>
-              <ion-select-option value="shangtung">Shantung</ion-select-option>
+              <!-- <ion-select-option value="linho">Linho</ion-select-option> -->
+              <!-- <ion-select-option value="oxford">Oxford</ion-select-option> -->
+              <!-- <ion-select-option value="shangtung">Shantung</ion-select-option> -->
             </ion-select>
           </ion-item>
         </ion-tab-button>
@@ -28,67 +28,69 @@
   </ion-content> 
 </ion-header>
 <ion-content class="ion-content">
+  <ion-input type="number" ></ion-input>
   <div style="margin-bottom: 50px; margin-top: 35px;">
-    <ion-card class="card-border">
-      <ion-item>
-        <ion-avatar slot="start" style="width: 100px; height: 100px;">
-          <img src="assets/img/cortina.jpg" alt="">
-        </ion-avatar>
-        <ion-label class="ion-text-wrap">
-          <ion-text color="dark">
-            <h3><b>Tecido Forro</b></h3>
-            <br>
-            <h5><b>Cor branco</b></h5> 
-            <br>
-            <h5>Tecido leve, com bom caímento, torna o ambiente agradável permitindo a entrada da luz natural</h5>
-            <br>
-          </ion-text>
-          <ion-text>
-            <h4>Valor (metro linear) :</h4> <br>
-            <ion-card-content>
-              <h3 style="font-size: 140%">20,99 R$</h3>
-            </ion-card-content>
-          </ion-text>
-        </ion-label>
-        <ion-button color="warning" fill="clear">
-          <ion-icon size="large" name="checkmark-outline" color="success"></ion-icon>
-        </ion-button>
-      </ion-item>
-      <ion-card-content>
-        <ion-button size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="card-border">
-      <ion-item>
-        <ion-avatar slot="start" style="width: 100px; height: 100px;">
-          <img src="assets/img/cortina2.jpg" alt="">
-        </ion-avatar>
-        <ion-label class="ion-text-wrap">
-          <ion-text color="dark">
-            <h3><b>Forro</b></h3>
-            <br>
-            <h5><b>Cor bége</b></h5>
-            <br>
-            <h5>Tecido leve, proteje móveis e o tecido da frente, diminui a intensidade do sol sem perder a luz natural que adentra o ambiente</h5>
-            <br>
-          </ion-text>
-          <ion-text>
-            <h4>Valor (metro linear) :</h4> <br>
-          </ion-text>
-          <ion-card-content>
-            <h3 style="font-size: 140%">18,99 R$</h3>
-          </ion-card-content>
-        </ion-label>
-        <ion-button color="warning" fill="clear">
-        </ion-button>
-      </ion-item>
-      <ion-card-content>
-        <ion-button size="small" fill="outline" slot="end" color="primary">Selecionar</ion-button>
-      </ion-card-content>
-    </ion-card>
+    <app-ion-c-produtos padding *ngFor="let x of Produtos" Tipo={{x.Tipo}} Cor={{x.Cor}} Descricao={{x.Descricao}} Imagem={{x.Imagem}} Valor={{x.Valor}}></app-ion-c-produtos>
   </div>
 </ion-content>
 <div class="floating-button">
   <ion-fab-button class="button-next" routerLink="../tabTipoCortina" color="success">Próximo</ion-fab-button>
 </div>
-  
+
+<!-- <ion-card class="card-border">
+  <ion-item>
+    <ion-avatar slot="start" style="width: 100px; height: 100px;">
+      <img src="assets/img/cortina.jpg" alt="">
+    </ion-avatar>
+    <ion-label class="ion-text-wrap">
+      <ion-text color="dark">
+        <h3><b>Tecido Forro</b></h3>
+        <br>
+        <h5><b>Cor branco</b></h5> 
+        <br>
+        <h5>Tecido leve, com bom caímento, torna o ambiente agradável permitindo a entrada da luz natural</h5>
+        <br>
+      </ion-text>
+      <ion-text>
+        <h4>Valor (metro linear) :</h4> <br>
+        <ion-card-content>
+          <h3 style="font-size: 140%">20,99 R$</h3>
+        </ion-card-content>
+      </ion-text>
+    </ion-label>
+    <ion-button color="warning" fill="clear">
+      <ion-icon size="large" name="checkmark-outline" color="success"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-card-content>
+    <ion-button size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
+  </ion-card-content>
+</ion-card>
+<ion-card class="card-border">
+  <ion-item>
+    <ion-avatar slot="start" style="width: 100px; height: 100px;">
+      <img src="assets/img/cortina2.jpg" alt="">
+    </ion-avatar>
+    <ion-label class="ion-text-wrap">
+      <ion-text color="dark">
+        <h3><b>Forro</b></h3>
+        <br>
+        <h5><b>Cor bége</b></h5>
+        <br>
+        <h5>Tecido leve, proteje móveis e o tecido da frente, diminui a intensidade do sol sem perder a luz natural que adentra o ambiente</h5>
+        <br>
+      </ion-text>
+      <ion-text>
+        <h4>Valor (metro linear) :</h4> <br>
+      </ion-text>
+      <ion-card-content>
+        <h3 style="font-size: 140%">18,99 R$</h3>
+      </ion-card-content>
+    </ion-label>
+    <ion-button color="warning" fill="clear">
+    </ion-button>
+  </ion-item>
+  <ion-card-content>
+    <ion-button size="small" fill="outline" slot="end" color="primary">Selecionar</ion-button>
+  </ion-card-content>
+</ion-card> -->

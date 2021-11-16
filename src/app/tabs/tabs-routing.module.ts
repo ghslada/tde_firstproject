@@ -35,16 +35,24 @@ const routes: Routes = [
         path: 'tabAcessorio',
         loadChildren: () => import('../acessorio/acessorio.module').then(m => m.AcessorioPageModule)
       },
+      // {
+      //   path: 'tabLogin',
+      //   loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule)
+      // },
+      // {
+      //   path: 'tabCadastro',
+      //   loadChildren: () => import('../cadastro/cadastro.module').then(m => m.CadastroPageModule)
+      // },
       {
         path: '',
-        redirectTo: '/tabs/tabProdutos',
+        redirectTo: '/login',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tabProdutos',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ];

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ecommercecortinastde": {
+      "hosting": {
+        "app": [
+          "ecommercecortinastde"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ecommercecortinastde"
+  }
+}

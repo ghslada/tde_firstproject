@@ -1,0 +1,62 @@
+<ion-card class="card-border">
+  <ion-item>
+    <ion-avatar slot="start" style="width: 100px; height: 100px;">
+      <img src="{{Imagem}}" alt="">
+    </ion-avatar>
+    <ion-label class="ion-text-wrap">
+      <ion-text color="dark">
+        <h3><b>{{Tipo}}</b></h3>
+        <br>
+        <h5><b>{{Cor}}</b></h5> 
+        <br>
+        
+        <h5>{{Descricao}}</h5>
+        <!-- <h5>Tecido leve, com bom caímento, torna o ambiente agradável permitindo a entrada da luz natural</h5> -->
+        <br>
+      </ion-text>
+      <ion-text>
+        <h4>Valor (metro linear) :</h4> <br>
+        <ion-card-content>
+          <h3 style="font-size: 140%">{{Valor}} R$</h3>
+        </ion-card-content>
+      </ion-text>
+    </ion-label>
+    <ion-button color="warning" fill="clear">
+      <ion-icon size="large" name="checkmark-outline" color="success"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-card-content>
+    <ion-button size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
+  </ion-card-content>
+</ion-card>
+
+<!--  PARA MUDAR A MENSAGEM DO BOTAOE MUDAR PRA VERDE SE O CARD FOR SELECIONADO 
+
+<ion-card class="card-border">
+  <ion-item>
+    <ion-avatar slot="start" style="width: 100px; height: 100px;">
+      <img src="assets/img/cortina2.jpg" alt="">
+    </ion-avatar>
+    <ion-label class="ion-text-wrap">
+      <ion-text color="dark">
+        <h3><b>Forro</b></h3>
+        <br>
+        <h5><b>Cor bége</b></h5>
+        <br>
+        <h5>Proteje móveis e o tecido da frente, diminui a intensidade do sol sem perder muita claridade no ambiente</h5>
+        <br>
+      </ion-text>
+      <ion-text>
+        <h4>Valor (metro linear) :</h4> <br>
+      </ion-text>
+      <ion-card-content>
+        <h3 style="font-size: 140%">18,99 R$</h3>
+      </ion-card-content>
+    </ion-label>
+    <ion-button color="warning" fill="clear">
+    </ion-button>
+  </ion-item>
+  <ion-card-content>
+    <ion-button size="small" fill="outline" slot="end" color="primary">Selecionar</ion-button>
+  </ion-card-content>
+</ion-card> -->
