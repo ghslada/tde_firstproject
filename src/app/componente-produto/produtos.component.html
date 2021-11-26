@@ -1,6 +1,6 @@
-<ion-card class="card-border">
+<ion-card (click)="selecionarTecido()" class="card-border">
   <ion-item>
-    <ion-avatar slot="start" style="width: 100px; height: 100px;">
+    <ion-avatar slot="start" style="width: 100px; height: 150px;">
       <img src="{{Imagem}}" alt="">
     </ion-avatar>
     <ion-label class="ion-text-wrap">
@@ -26,7 +26,7 @@
     </ion-button>
   </ion-item>
   <ion-card-content>
-    <ion-button size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
+    <ion-button   size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
   </ion-card-content>
 </ion-card>
 

@@ -1,21 +1,21 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable @typescript-eslint/dot-notation */
-/* eslint-disable @typescript-eslint/naming-convention */
-import { isDefined } from '@angular/compiler/src/util';
 /* eslint-disable @typescript-eslint/quotes */
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable no-trailing-spaces */
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { getAuth, signInWithEmailAndPassword, Auth, onAuthStateChanged, UserCredential } from "firebase/auth";
-import { doc, getDoc, Firestore } from "firebase/firestore";
+import { Auth, onAuthStateChanged } from 'firebase/auth';
+import { doc, Firestore, getDoc, setDoc } from 'firebase/firestore';
 import { auth, db, verificaSeLogado } from '../firebaseConfig';
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.page.html',
-  styleUrls: ['./perfil.page.scss'],
+  selector: 'app-editar-cadastro',
+  templateUrl: './editar-cadastro.page.html',
+  styleUrls: ['./editar-cadastro.page.scss'],
 })
-export class PerfilPage implements OnInit {
+export class EditarCadastroPage implements OnInit {
 
   User: any = [];
   Nome: string;
@@ -27,19 +27,26 @@ export class PerfilPage implements OnInit {
   Estado: string;
   Cpf: string;
 
-
   constructor(router: Router) {
     verificaSeLogado(router);
     this.getUserData(db);
-  }
+   }
 
-  logout(router?: Router){
-    auth.signOut().then(() => {
-      alert('Loged out');
-      // router.navigate(['login']);
-    }).catch(error => {
-      alert('Recarregue a pagina, erro: '+ error.message);
-    });
+  async updateDadosDoUser(){
+    const usuario = doc(db,'usuarios', auth.currentUser.uid);
+    await setDoc(usuario, {
+      nome: this.Nome,
+      email: this.Email,
+      senha: this.Senha,
+      dataNasc: this.DataNasc,
+      endereco: this.Endereco,
+      cep: this.Cep,
+      estado: this.Estado,
+      cpf: this.Cpf     
+    }).then((dossc) => {
+      const local = 'tabs/tabProdutos';
+      window.location.href=local;
+    }).catch(err => alert(err));
   }
 
   async getUserData(db: Firestore) {

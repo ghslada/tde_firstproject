@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Auth, onAuthStateChanged } from 'firebase/auth';
+import { auth, verificaSeLogado } from '../firebaseConfig';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,7 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosPage implements OnInit {
 
-  constructor() { }
+  constructor(router: Router) {
+    verificaSeLogado(router);
+   }
+
 
   ngOnInit() {
   }

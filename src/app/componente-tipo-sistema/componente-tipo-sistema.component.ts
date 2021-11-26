@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
+import { carrinho, produto } from '../firebaseConfig';
 
 @Component({
   selector: 'app-componente-tipo-sistema',
@@ -17,12 +18,14 @@ export class TipoSistemaComponent implements OnInit {
   @Input()
   Imagem: string;
   @Input()
-  Escolha: number;
+  Escolha: string;
 
   constructor() { }
 
   selecionarTipo(){
-      this.Escolha = this.Id;
+      this.Escolha = this.Tipo;
+      produto.sistema=this.Escolha;
+      console.log(produto);
   }
 
   ngOnInit() {}

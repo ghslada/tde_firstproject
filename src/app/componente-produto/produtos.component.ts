@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
+import { carrinho, produto } from '../firebaseConfig';
 // import { fireApp } from '../firebaseConfig';
 // import { getFirestore, Firestore, collection, getDocs } from 'firebase/firestore';
 
@@ -16,6 +18,9 @@ export class ProdutosComponent implements OnInit {
   @Input() Descricao: string;
   @Input() Imagem: string;
   @Input() Valor: number;
+  @Input()
+  Tecido: string;
+
   constructor() { }
 
   // produtos = async (db: Firestore) => {
@@ -25,8 +30,11 @@ export class ProdutosComponent implements OnInit {
   //   return produtosList;
   // };
 
-  setTecido(){
-    return;
+  selecionarTecido(){
+    this.Tecido = this.Tipo + " - " + this.Cor;
+    produto.valor_tecido=this.Valor;
+    produto.tecido = this.Tecido;
+    console.log(produto);
   }
 
   ngOnInit() {}

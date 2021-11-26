@@ -6,11 +6,12 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProdutosComponent } from '../componente-produto/produtos.component';
 import { TipoSistemaComponent } from '../componente-tipo-sistema/componente-tipo-sistema.component';
+import { CarrinhoComponent } from '../componente-carrinho/carrinho.component';
 
 
 @NgModule({
     imports: [CommonModule, FormsModule, IonicModule],
-    declarations: [ TipoSistemaComponent, ProdutosComponent,],
-    exports: [TipoSistemaComponent, ProdutosComponent]
+    declarations: [ TipoSistemaComponent, ProdutosComponent, CarrinhoComponent],
+    exports: [TipoSistemaComponent, ProdutosComponent, CarrinhoComponent]
 })
 export class ComponentsModule {}

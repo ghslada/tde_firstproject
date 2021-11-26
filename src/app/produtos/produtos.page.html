@@ -9,10 +9,9 @@
           <ion-item color="light">
             <ion-icon class="filter-icon" name="funnel-outline"></ion-icon>
             <ion-label><b>Tipo de tecido</b></ion-label>
-            <ion-select interface="popover">
-              <!-- <ion-select-option value="blackout">Blackout</ion-select-option> -->
-              <ion-select-option value="voil">Voil</ion-select-option>
-              <ion-select-option value="forro">Forro</ion-select-option>
+            <ion-select (ngModelChange)="getTecidos()" id="mySelect" interface="popover" [(ngModel)]="Escolha">
+              <ion-select-option value="Todos">Todos</ion-select-option> -->
+              <ion-select-option *ngFor="await let escolha of Options" value={{escolha.Tipo}}>{{escolha.Tipo}}</ion-select-option>
               <!-- <ion-select-option value="linho">Linho</ion-select-option> -->
               <!-- <ion-select-option value="oxford">Oxford</ion-select-option> -->
               <!-- <ion-select-option value="shangtung">Shantung</ion-select-option> -->
@@ -27,15 +26,13 @@
     </ion-tabs>    
   </ion-content> 
 </ion-header>
-<ion-content class="ion-content">
-  <ion-input type="number" ></ion-input>
-  <div style="margin-bottom: 50px; margin-top: 35px;">
-    <app-ion-c-produtos padding *ngFor="let x of Produtos" Tipo={{x.Tipo}} Cor={{x.Cor}} Descricao={{x.Descricao}} Imagem={{x.Imagem}} Valor={{x.Valor}}></app-ion-c-produtos>
-  </div>
+<ion-content slot="fixed" class="ion-content p-3">
+  <!-- <ion-input type="number"></ion-input> -->
+    <app-ion-c-produtos routerLink="../tabTipoCortina" padding *ngFor="await let x of Produtos" Id={{x.Id}} Tipo={{x.Tipo}} Cor={{x.Cor}} Descricao={{x.Descricao}} Imagem={{x.Imagem}} Valor={{x.Valor}}></app-ion-c-produtos>
 </ion-content>
-<div class="floating-button">
+<!-- <div class="floating-button">
   <ion-fab-button class="button-next" routerLink="../tabTipoCortina" color="success">Próximo</ion-fab-button>
-</div>
+</div> -->
 
 <!-- <ion-card class="card-border">
   <ion-item>

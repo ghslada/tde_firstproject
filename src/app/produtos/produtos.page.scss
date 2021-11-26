@@ -19,24 +19,27 @@
 
 .ion-content{
     height: calc(150vh - (400px + 112px));
-    top: 30px;
+    top: 50px;
+    // bottom: 50px;
 }
 
 ion-icon{
     font-size: 20px;
 }
 
-.card-border{
-    border: solid thin grey;
-}
+// .card-border{
+//     border: solid thin grey;
+//     margin-bottom: 500px;
+// }
 
 .floating-button{
     margin-right: 20px;
+    background-color: rgba(0, 0, 0, 0);
 
     .button-next{
+        background-color: rgba(0, 0, 0, 0);
         margin-bottom: 20px;
         float: right;
         border-radius: 50%;
     }
 }
-

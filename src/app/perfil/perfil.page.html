@@ -8,7 +8,8 @@
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button  color="light" fill="solid"> 
-        <ion-text color="dark">Editar</ion-text>
+  <!-- <ion-fab-button class="button-next" routerLink="../tabTipoCortina" color="success">Próximo</ion-fab-button> -->
+        <ion-text routerLink="../tabEditarDados" color="dark">Editar</ion-text>
         <ion-icon slot="start" color="dark" name="cog-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -23,7 +24,7 @@
 
     <div class="card-body">
       <div class="user-meta ion-text-center">
-        <h3 class="username">Nome Usuário Logado</h3>
+        <h3 class="username">{{Nome}}</h3>
         <div class="justify-content-center">
           <ion-button fill="outline" expand="round" >
             Veja nosso trabalho nas redes sociais
@@ -48,26 +49,26 @@
       </ion-toolbar>
       <ion-toolbar slot="primary" class="firstLine">
         <ion-card class="cards">
+          <ion-icon name="person-outline" class="content-icons"></ion-icon>
+          CPF: <br>
+          {{Cpf}}
+        </ion-card> 
+        <ion-card class="cards">
             <ion-icon name="calendar-outline" class="content-icons"></ion-icon>
             Data de nascimento: <br>
-            12/07/1988
+            {{DataNasc}}
         </ion-card>
         <ion-card class="col-sm-3 cards">
             <ion-icon name="locate-outline" class="content-icons"></ion-icon>   
             Endereço: <br>
-            Rua Joaquim Barbosa nº 901, <br>
-            bairro Nova Aurora <br>
+            {{Endereco}}
         </ion-card>
         <ion-card class="cards">
           <ion-icon name="map-outline" class="content-icons"></ion-icon>
           CEP / Cidade - UF: <br>
-          80010-000 / Curitiba - PR
+          {{Cep}}
         </ion-card>   
-        <ion-card class="cards">
-          <ion-icon name="person-outline" class="content-icons"></ion-icon>
-          CPF: <br>
-          129.120.198-01
-        </ion-card>    
+           
       </ion-toolbar>
 
     </div>

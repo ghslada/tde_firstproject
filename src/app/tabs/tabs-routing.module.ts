@@ -35,6 +35,10 @@ const routes: Routes = [
         path: 'tabAcessorio',
         loadChildren: () => import('../acessorio/acessorio.module').then(m => m.AcessorioPageModule)
       },
+      {
+        path: 'tabEditarDados',
+        loadChildren: () => import('../editar-cadastro/editar-cadastro.module').then(m => m.EditarCadastroPageModule)
+      },
       // {
       //   path: 'tabLogin',
       //   loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule)

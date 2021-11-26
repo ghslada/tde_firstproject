@@ -1,3 +1,27 @@
-<p>
-  carrinho works!
-</p>
+<ion-card class="card-border">
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/img/cortina.jpg" alt="">
+    </ion-avatar>
+    <ion-label class="ion-text-wrap">
+      <b>{{Tecido}} - {{Acessorio}}</b> <br>
+    </ion-label>
+    <ion-label class="ion-text-wrap">
+      <b>L:{{Largura}} x A:{{Altura}}</b> <br>
+    </ion-label>
+    <ion-button color="warning" fill="clear">
+      <ion-icon size="large" name="close-circle-outline" color="danger"></ion-icon>
+    </ion-button>
+  </ion-item>
+    <ion-card-content>
+      <ion-button size="small" slot="end" color="white">
+        <ion-icon size="large" name="add-circle-outline" color="success"></ion-icon>
+      </ion-button>
+      <ion-button size="small" slot="end" color="white">
+        <ion-icon size="large" name="remove-circle-outline" color="warning"></ion-icon>
+      </ion-button>
+      <ion-label class="qtd">
+        <ion-text><b>{{Qtd}}</b>unidade(s)</ion-text>
+      </ion-label>
+    </ion-card-content>
+</ion-card>

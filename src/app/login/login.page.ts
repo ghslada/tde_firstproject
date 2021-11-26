@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
   Senha: string;
   User: UserCredential;
 
-  constructor() {
+  constructor(private router: Router) {
     this.verificaLogin();
    }
 
@@ -31,9 +31,9 @@ export class LoginPage implements OnInit {
         const uid = user.uid;
         const local = 'tabs/tabProdutos';
         if(user.uid){
-          window.location.href=local;
+          this.router.navigate(['tabs/', 'tabProdutos']);
         }else{
-          console.log("nao logado.");
+          // console.log("Você não está logado.");
         }
         // ...
       } else {
@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
       // Signed in
       const user = userCredential.user;
       const local = 'tabs/tabProdutos';
-      window.location.href=local;
+      this.router.navigate(['tabs/', 'tabProdutos']);
     })
     .catch((error) => {
       const errorCode = error.code;

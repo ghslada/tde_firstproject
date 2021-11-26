@@ -16,6 +16,12 @@ export class CadastroPage implements OnInit {
   Nome: string;
   Email: string;
   Senha: string;
+  DataNasc: string;
+  Endereco: string;
+  Cep: string;
+  Estado: string;
+  Cpf: string;
+
   constructor() { }
 
   ngOnInit() {
@@ -27,17 +33,23 @@ export class CadastroPage implements OnInit {
       createUserWithEmailAndPassword(auth, this.Email, this.Senha)
         .then(async (userCredential) => {
           // Signed in
-          const user = userCredential.user;
-          const uid = user.uid;
-          // ...
-          await setDoc(doc(db, "usuarios", uid), {
+          // const user = userCredential.user;
+          // const uid = user.uid;
+          const usuario = doc(db,'usuarios', auth.currentUser.uid);
+          await setDoc(usuario, {
             nome: this.Nome,
             email: this.Email,
-            senha: this.Senha
-          }).then(() => {
+            senha: this.Senha,
+            dataNasc: this.DataNasc,
+            endereco: this.Endereco,
+            cep: this.Cep,
+            estado: this.Estado,
+            cpf: this.Cpf
+            
+          }).then((dossc) => {
             const local = 'tabs/tabProdutos';
             window.location.href=local;
-          }).catch(err => console.log(err));
+          }).catch(err => alert(err));
           
 
         })

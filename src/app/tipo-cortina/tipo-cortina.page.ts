@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-trailing-spaces */
 import { Firestore } from 'firebase/firestore';
 /* eslint-disable @typescript-eslint/quotes */
@@ -5,7 +6,9 @@ import { collection, getDocs } from 'firebase/firestore';
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
-import { db } from '../firebaseConfig';
+import { auth, db, verificaSeLogado } from '../firebaseConfig';
+import { Auth, onAuthStateChanged } from 'firebase/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tipo-cortina',
@@ -14,21 +17,26 @@ import { db } from '../firebaseConfig';
 })
 export class TipoCortinaPage implements OnInit{
 
-  Selecionado: number;
+
+  Id: number;
+
+  Tipo: string;
+
+  Imagem: string;
+
+  Escolha: number;
   // eslint-disable-next-line quote-props
-  tipos=[{nome : 'ilhos', texto: 'Varão com ilhós' , 'imagesrc' :'assets/img/ilhos.png'}];
+  // tipos=[{nome : 'ilhos', texto: 'Varão com ilhós' , 'imagesrc' :'assets/img/ilhos.png'}];
 
   Sistemas: any = [];
 
-  constructor() {
-    
+  constructor(router: Router) {
+
+    //IMPORTADO DO ARQUIVO FIREBASECONFIG
+    verificaSeLogado(router);  
+
    }
-
-  ngOnInit() {
-    this.getSistemas();
-  }
-
-  async getSistemas(){
+   async getSistemas(){
     const citiesCol = collection(db, 'tipo-sistema');
     const citySnapshot = await getDocs(citiesCol);
     // const snap = citySnapshot.docChanges();
@@ -43,5 +51,11 @@ export class TipoCortinaPage implements OnInit{
       // snap.map(s => console.log(s.doc.data()));
     }
   }
+
+  ngOnInit() {
+    this.getSistemas();
+  }
+
+  
 
 }

@@ -3,27 +3,26 @@
 .center{
     transform: translate(0, 35%);
     background-color: 0,0,0,0;
+    margin-right: 20px;
+    margin-left: 20px;
 
     .button-cadastro{
-        background-color: rgba($color: #000000, $alpha: 0);
+        margin-top: 10%;
+        margin-bottom: 100%;
+        float: left;
+        border-radius: 10%;
+    }
+    .button-entrar{
+        margin-top: 10%;
         margin-bottom: 100%;
         float: right;
         border-radius: 10%;
-        width: 100px;
-        
     }
 }
 
 .floating-button{
-    margin-right: 20px;
-    margin-left: 20px;
+
     background-color: rgba($color: #000000, $alpha: 0);
 
-    .button-entrar{
-        background-color: rgba($color: #000000, $alpha: 0);
-        margin-bottom: 100%;
-        float: right;
-        border-radius: 10%;
-        width: 100px;
-    }
+
 }

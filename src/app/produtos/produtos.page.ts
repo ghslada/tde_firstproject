@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/no-shadow */
 import { observable, Observable } from 'rxjs';
 /* eslint-disable no-trailing-spaces */
@@ -6,7 +8,7 @@ import { observable, Observable } from 'rxjs';
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/quotes */
 import { Component, Inject, OnInit } from '@angular/core';
-import { auth, db } from '../firebaseConfig';
+import { auth, carrinho, db, verificaSeLogado } from '../firebaseConfig';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { Auth, onAuthStateChanged } from 'firebase/auth';
 @Component({
@@ -19,74 +21,68 @@ export class ProdutosPage implements OnInit {
 
   // Get a list of cities from your database
   
-  PRODUTOS = [
-    {Id: 0, Tipo: "Voil", Cor: "Branco", Imagem: "assets/img/cortina.jpg",Descricao:"Tecido leve, com bom caímento, torna o ambiente agradável permitindo a entrada da luz natural", Valor: 21},
-    {Id: 1, Tipo: "Forro", Cor: "Bege", Imagem: "assets/img/cortina2.jpg", Descricao:"Tecido leve, proteje móveis e o tecido da frente, diminui a intensidade do sol sem perder a luz natural que adentra o ambiente", Valor: 21},
-  ];
-  QtdProdutos: number;
-
+  // QtdProdutos: number;
+  Escolha: string;
+  Options: any = [];
+  PRODUTOS = [];
   Produtos: Array<any>=[];
+  Ob: Observable<any>;
 
-  constructor() {
-    this.QtdProdutos=this.PRODUTOS.length;
-    this.getCities(db);
-    this.verificaSeLogado(auth);
+  constructor(router: Router) {
+    this.Escolha='Todos';
+    this.getTecidos();
+    this.getTiposDeTecido();
+    verificaSeLogado(router);
     console.log(auth);
-    // this.Produtos.push(this.data);
   }
 
-  async getCities(db) {
-    const citiesCol = collection(db, 'produtos');
+  async getTecidos() {
+    const citiesCol = collection(db, 'tecidos');
     const citySnapshot = await getDocs(citiesCol);
-    // const snap = citySnapshot.docChanges();
     if (citySnapshot.empty) {
       console.log("Firestore vazio.");
     }else{
-      citySnapshot.docs.forEach(doc => {
-        // console.log(doc.data());
-        this.Produtos.push(doc.data());
-      });
+      if(this.Escolha === 'Todos'){
+        this.Produtos=[];
+        this.PRODUTOS=[];
+        citySnapshot.docs.forEach(doc => {
+          this.Produtos.push(doc.data());
+        });
+      }else{
+        let index=0;
+        this.Produtos=[];
+        this.PRODUTOS=[];
+        citySnapshot.docs.forEach(doc => {
+          this.PRODUTOS[index]=(doc.data());
+          if (this.PRODUTOS[index]['Tipo']===this.Escolha) { 
+            this.Produtos.push(this.PRODUTOS[index]);
+          }
+          index++;
+        });
+      }
       console.log(this.Produtos);
       // snap.map(s => console.log(s.doc.data()));
     }
   }
 
-  async setTecido(){
-    return this.Produtos;
+  async getTiposDeTecido(){
+    const citiesCol = collection(db, 'tecidos');
+    const citySnapshot = await getDocs(citiesCol);
+    if (citySnapshot.empty) {
+      console.log("Firestore vazio.");
+    }else{
+      let index=0;
+      citySnapshot.forEach(doc => {
+        this.Options.push(doc.data());
+        // let d1 = document.getElementById('mySelect');
+        // console.log(d1);
+        // d1.appendChild();
+        index++;
+      });
+      console.log(this.Produtos);
+      // snap.map(s => console.log(s.doc.data()));
+    }
   }
-
-
-  verificaSeLogado(auth: Auth){
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.email;
-        const local = 'tabs/tabProdutos';
-        if(uid){
-          // window.location.href=local;
-          console.log(uid);
-        }else{
-        }
-        // ...
-      } else {
-        // User is signed out
-        window.location.href='/login';
-        // ...
-      }
-    });
-  }
-
-  // exibeProdutos(value) {
-  //     for (let i=0; i<this.QtdProdutos; i++){
-  //       this.Produtos[i]['Tipo']=this.PRODUTOS[i].Tipo;
-  //       this.Produtos[i]['Cor']=this.PRODUTOS[i].Cor;
-  //       this.Produtos[i]['Descricao']=this.PRODUTOS[i].Descricao;
-  //       this.Produtos[i]['Imagem']=this.PRODUTOS[i].Imagem;
-  //       this.Produtos[i]['Valor']=this.PRODUTOS[i].Valor;
-  //       console.log(this.PRODUTOS[i]);
-  //     }
-  // }
 
   ngOnInit() {}
 }

@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center" color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/login">Voltar</ion-back-button>
+      <ion-back-button defaultHref="tabs/tabPerfil">Voltar</ion-back-button>
     </ion-buttons>
-    <ion-title>Editar dados</ion-title>
+    <ion-title>Atualizar meus dados</ion-title>
   </ion-toolbar>
   <ion-content>
     <ion-tabs>
@@ -97,9 +97,9 @@
       </ion-item>
 
     </ion-list>
-    <ion-button (click)="cadastrar()" class="button-cadastro">Realizar cadastro</ion-button>
+    <ion-button (click)="updateDadosDoUser()"  class="button-cadastro">Atualizar dados</ion-button>
     <div>
-      <ion-button routerLink="/login" color="danger" class="button-apagar">Apagar campos</ion-button>
+      <ion-button routerLink="/tabs/tabPerfil" color="secondary" class="button-apagar">Voltar</ion-button>
     </div>
   </div>
 </ion-content>

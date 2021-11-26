@@ -1,4 +1,9 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable @typescript-eslint/no-shadow */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Auth, onAuthStateChanged } from 'firebase/auth';
+import { auth, verificaSeLogado } from '../firebaseConfig';
 
 @Component({
   selector: 'app-acessorio',
@@ -7,7 +12,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcessorioPage implements OnInit {
 
-  constructor() { }
+  constructor(router: Router) {
+    verificaSeLogado(router);
+   }
 
   ngOnInit() {
   }
