@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
@@ -21,7 +22,7 @@ export class ProdutosComponent implements OnInit {
   @Input()
   Tecido: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   // produtos = async (db: Firestore) => {
   //   const produtosCol = collection(db, 'produtos');
@@ -34,7 +35,9 @@ export class ProdutosComponent implements OnInit {
     this.Tecido = this.Tipo + " - " + this.Cor;
     produto.valor_tecido=this.Valor;
     produto.tecido = this.Tecido;
+    produto.url_img= this.Imagem;
     console.log(produto);
+    this.router.navigate(['tabs/tabMedidas']);
   }
 
   ngOnInit() {}

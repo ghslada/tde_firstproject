@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/naming-convention */
-import { isDefined } from '@angular/compiler/src/util';
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable no-trailing-spaces */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { getAuth, signInWithEmailAndPassword, Auth, onAuthStateChanged, UserCredential } from "firebase/auth";
-import { doc, getDoc, Firestore } from "firebase/firestore";
+import { Auth, onAuthStateChanged, User } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 import { auth, db, verificaSeLogado } from '../firebaseConfig';
 
 @Component({
@@ -30,22 +29,23 @@ export class PerfilPage implements OnInit {
 
   constructor(router: Router) {
     verificaSeLogado(router);
-    this.getUserData(db);
+    onAuthStateChanged(auth, () => {
+      this.getUserData(auth.currentUser);
+    });
   }
 
-  logout(router?: Router){
+  logout(){
     auth.signOut().then(() => {
-      alert('Loged out');
-      // router.navigate(['login']);
+      // alert('Loged out');
     }).catch(error => {
       alert('Recarregue a pagina, erro: '+ error.message);
     });
   }
 
-  async getUserData(db: Firestore) {
+  async getUserData(currentUser: User) {
     // const uid = auth.currentUser.uid;
-    if(auth.currentUser){
-      const citiesCol = doc(db, 'usuarios', auth.currentUser.uid);
+    if(currentUser){
+      const citiesCol = doc(db, 'usuarios', currentUser.uid);
       await getDoc(citiesCol)
       .then(docSnapshot => {
         if(docSnapshot.data()) {

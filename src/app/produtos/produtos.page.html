@@ -1,22 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tabTipoCortina"><ion-title>Voltar</ion-title></ion-back-button>
+    </ion-buttons>
     <ion-title>Tecido</ion-title>
   </ion-toolbar>
   <ion-content>
     <ion-tabs>
       <ion-tab-bar class="tab-bar" color="light" slot="fixed">
         <ion-tab-button class="button-type">
-          <ion-item color="light">
-            <ion-icon class="filter-icon" name="funnel-outline"></ion-icon>
-            <ion-label><b>Tipo de tecido</b></ion-label>
-            <ion-select (ngModelChange)="getTecidos()" id="mySelect" interface="popover" [(ngModel)]="Escolha">
-              <ion-select-option value="Todos">Todos</ion-select-option> -->
-              <ion-select-option *ngFor="await let escolha of Options" value={{escolha.Tipo}}>{{escolha.Tipo}}</ion-select-option>
-              <!-- <ion-select-option value="linho">Linho</ion-select-option> -->
-              <!-- <ion-select-option value="oxford">Oxford</ion-select-option> -->
-              <!-- <ion-select-option value="shangtung">Shantung</ion-select-option> -->
-            </ion-select>
-          </ion-item>
+          <!-- <ion-content class="button-type"> -->
+            <!-- <ion-label><b>Tipo de tecido</b></ion-label> -->
+            <ion-item color="light">
+              <ion-icon class="filter-icon" name="funnel-outline"></ion-icon>
+              <ion-select (ngModelChange)="getTecidos()" class="tipo" id="mySelect" interface="popover" [(ngModel)]="Escolha">
+                <ion-select-option value="Todos">Todos</ion-select-option> -->
+                <ion-select-option *ngFor=" let escolha of Options" value={{escolha.Tipo}}>{{escolha.Tipo}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          <!-- </ion-content> -->
         </ion-tab-button>
         <ion-tab-button class="button-help" layout="icon-end">
           <ion-label><b>Ajuda</b></ion-label>
@@ -28,7 +30,7 @@
 </ion-header>
 <ion-content slot="fixed" class="ion-content p-3">
   <!-- <ion-input type="number"></ion-input> -->
-    <app-ion-c-produtos routerLink="../tabTipoCortina" padding *ngFor="await let x of Produtos" Id={{x.Id}} Tipo={{x.Tipo}} Cor={{x.Cor}} Descricao={{x.Descricao}} Imagem={{x.Imagem}} Valor={{x.Valor}}></app-ion-c-produtos>
+    <app-ion-c-produtos padding *ngFor=" let x of Produtos" Id={{x.Id}} Tipo={{x.Tipo}} Cor={{x.Cor}} Descricao={{x.Descricao}} Imagem={{x.Imagem}} Valor={{x.Valor}}></app-ion-c-produtos>
 </ion-content>
 <!-- <div class="floating-button">
   <ion-fab-button class="button-next" routerLink="../tabTipoCortina" color="success">Próximo</ion-fab-button>

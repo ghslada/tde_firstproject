@@ -27,7 +27,16 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
-
+  apagarCampos(){
+    this.Nome='';
+    this.Email='';
+    this.Senha='';
+    this.DataNasc='';
+    this.Endereco='';
+    this.Cep='';
+    this.Estado='';
+    this.Cpf='';
+  }
 
   cadastrar(){
       createUserWithEmailAndPassword(auth, this.Email, this.Senha)

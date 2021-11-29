@@ -17,81 +17,18 @@
   </ion-content> 
 </ion-header>
 <ion-content>
-  <div class="content">
-    <div class="aviso">
+  <div class="content" slot="fixed">
+    <div>
       <ion-text class="ion-text-center">
-          <b>O acessório é obrigatório, pois compõe a cortina.</b>
-        </ion-text>
+            <b>O acessório é obrigatório, pois compõe a cortina.</b>
+      </ion-text>
     </div>
   </div>
   <br>
   <div class="obrigatorio">
     <br>
-    <div class="title">
-      <ion-label><ion-text><b>Obrigatório *</b></ion-text></ion-label>
-      
-    </div>
-    <ion-card class="card-border">
-      <ion-item>
-        <ion-avatar slot="start" style="width: 100px; height: 100px;">
-          <img src="assets/img/ilhos_branco.jpg" alt="">
-        </ion-avatar>
-        <ion-label class="ion-text-wrap">
-          <ion-text color="dark">
-            <h3><b>Ilhós</b></h3>
-            <br>
-            <h5>Cor:<b> branco</b></h5> 
-            <br>
-          </ion-text>
-          <ion-text>
-            <h4>Valor (metro linear de cortina) :</h4> <br>
-            <ion-card-content>
-              <h3 style="font-size: 140%">18,59 R$</h3>
-            </ion-card-content>
-          </ion-text>
-        </ion-label>
-        <ion-button color="warning" fill="clear">
-          <ion-icon size="large" name="checkmark-outline" color="success"></ion-icon>
-        </ion-button>
-      </ion-item>
-      <ion-card-content>
-        <ion-button size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
-      </ion-card-content>
-    </ion-card>
-  </div>
-  <!-- <div class="opcional">
-    <br>
-    
-    <ion-label class="ion-text-center"><ion-text ><b>Opcionais</b></ion-text></ion-label>
-    <ion-card class="card-border">
-      <ion-item>
-        <ion-avatar slot="start" style="width: 100px; height: 100px;">
-          <img src="assets/img/varao.jpg" alt="">
-        </ion-avatar>
-        <ion-label class="ion-text-wrap">
-          <ion-text color="dark">
-            <h3><b>Varão (sem suportes)</b></h3>
-            <br>
-            <h5>Cor:<b> branco</b></h5> 
-            <br>
-          </ion-text>
-          <ion-text>
-            <h4>Valor (metro linear) :</h4> <br>
-            <ion-card-content>
-              <h3 style="font-size: 140%">22,99 R$</h3>
-            </ion-card-content>
-          </ion-text>
-        </ion-label>
-        <ion-button color="warning" fill="clear">
-          <ion-icon size="large" name="checkmark-outline" color="success"></ion-icon>
-        </ion-button>
-      </ion-item>
-      <ion-card-content>
-        <ion-button size="small" fill="outline" slot="end" color="success">Selecionado</ion-button>
-      </ion-card-content>
-    </ion-card>
-  </div> -->
-    
+    <app-c-acessorio *ngFor=" let ac of Acessorios" Tipo={{ac.Tipo}} Cor={{ac.Cor}} Valor={{ac.Valor}} ></app-c-acessorio>
+  </div>    
 </ion-content>
 
 <div class="floating-button">

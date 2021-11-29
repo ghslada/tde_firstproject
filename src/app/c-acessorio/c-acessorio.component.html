@@ -1,0 +1,27 @@
+<ion-card (click)="selecionarAcessorio()" class="card-border">
+  <div class="title">
+    <ion-label><ion-text><b>Obrigatório *</b></ion-text></ion-label>
+  </div>
+  <ion-item>
+    <ion-avatar slot="start" style="width: 100px; height: 100px;">
+      <img src="assets/img/ilhos_branco.jpg" alt="">
+    </ion-avatar>
+    <ion-label class="ion-text-wrap">
+      <ion-text color="dark">
+        <h3><b>{{Tipo}}</b></h3>
+        <br>
+        <h5>Cor:<b>{{Cor}}</b></h5> 
+        <br>
+      </ion-text>
+      <ion-text>
+        <h4>Valor (metro linear de cortina) :</h4> <br>
+        <ion-card-content>
+          <h3 style="font-size: 140%">{{Valor}} R$</h3>
+        </ion-card-content>
+      </ion-text>
+    </ion-label>
+    <ion-button color="warning" fill="clear">
+      <ion-icon size="large" name="checkmark-outline" color="success"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-card>

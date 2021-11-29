@@ -1,15 +1,15 @@
 <ion-content fullscreen="true" class="perfil-background" slot="fixed">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="light" fill="solid">
-        <ion-text (click)="logout()" color="dark">Sair</ion-text>
+      <ion-button (click)="logout()" color="light" fill="solid">
+        <ion-text color="dark">Sair</ion-text>
         <ion-icon slot="start" color="dark" name="exit-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button  color="light" fill="solid"> 
+      <ion-button routerLink="../tabEditarDados" color="light" fill="solid"> 
   <!-- <ion-fab-button class="button-next" routerLink="../tabTipoCortina" color="success">Próximo</ion-fab-button> -->
-        <ion-text routerLink="../tabEditarDados" color="dark">Editar</ion-text>
+        <ion-text  color="dark">Editar</ion-text>
         <ion-icon slot="start" color="dark" name="cog-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -22,13 +22,13 @@
       </div>
     </div>
 
-    <div class="card-body">
+    <div class="card-body" >
       <div class="user-meta ion-text-center">
         <h3 class="username">{{Nome}}</h3>
         <div class="justify-content-center">
-          <ion-button fill="outline" expand="round" >
-            Veja nosso trabalho nas redes sociais
-            <ion-icon slot="start" name="share-social-outline"></ion-icon>
+          <ion-button class="justify-content-center" fill="outline" expand="round" >
+            Visite nossas redes sociais
+          <ion-icon slot="start" name="share-social-outline"></ion-icon>
           </ion-button>
         </div>
       </div>

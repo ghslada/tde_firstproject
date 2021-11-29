@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/prefer-for-of */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
@@ -20,12 +21,13 @@ export class TipoSistemaComponent implements OnInit {
   @Input()
   Escolha: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   selecionarTipo(){
       this.Escolha = this.Tipo;
       produto.sistema=this.Escolha;
       console.log(produto);
+      this.router.navigate(['/tabs/tabProdutos']);
   }
 
   ngOnInit() {}

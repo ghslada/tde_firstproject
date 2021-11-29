@@ -5,21 +5,46 @@
 </ion-header>
 
 <ion-content>
-  <!-- <app-carrinho *ngFor=""></app-carrinho> -->
-  <ion-card class="card-border">
+  <app-c-carrinho *ngFor="let it of produtos" 
+    Tecido={{it.tecido}}
+    Acessorio={{it.acessorio.descricao}}
+    Altura={{it.medidas.altura}} 
+    Largura={{it.medidas.largura}}
+    Qtd={{it.qtd}}
+    Valor={{it.valor.toFixed(2)}}
+    Metros={{it.medidas.metros_lineares.toFixed(2)}}
+    Valor_tecido={{it.valor_tecido}}
+    Partes={{it.medidas.partes}}
+    Proporcao={{it.medidas.proporcao}}
+    Imagem={{it.url_img}}
+    Id={{it.id}}
+    >
+  </app-c-carrinho>
+
+
+  <!-- <ion-card class="card-border">
     <ion-item>
       <ion-avatar slot="start">
         <img src="assets/img/cortina.jpg" alt="">
       </ion-avatar>
       <ion-label class="ion-text-wrap">
-        <b>Tecido voil branco - Ilhós cromado</b> <br>
+        <ion-button class="right" color="warning" fill="clear">
+          <ion-icon size="large" name="close-circle-outline" color="danger"></ion-icon>
+        </ion-button> 
+        <b>Tecido voil branco - Ilhós cromado</b>    
+        <br>
       </ion-label>
+    </ion-item>
+    <ion-item class="right">
       <ion-label class="ion-text-wrap">
         <b>4,47m x 2,77m</b> <br>
+        <b>9m lineares de tecido</b> <br>
       </ion-label>
-      <ion-button color="warning" fill="clear">
-        <ion-icon size="large" name="close-circle-outline" color="danger"></ion-icon>
-      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <b>Valor: R$</b> <br>
+      </ion-label>
     </ion-item>
       <ion-card-content>
         <ion-button size="small" slot="end" color="white">
@@ -32,5 +57,5 @@
           <ion-text><b>2 </b>unidades</ion-text>
         </ion-label>
       </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 </ion-content>

@@ -33,7 +33,7 @@ export const fireApp = initializeApp(firebaseConfig);
 // console.log("Hello from app: " + JSON.stringify(fireApp));
 export const db = getFirestore(fireApp);
 export const auth = getAuth(fireApp);
-export let produto: any = {'valor_tecido': 0, 'tecido': '', 'sistema': '', 'medidas': {'altura': 0, 'largura': 0, 'proporcao': 3,'partes': 0, 'metros_lineares': 0}, 'acessorio': '', 'valor': 0};
+export let produto: any = {'id': 1, 'url_img': '', 'valor_tecido': 0, 'tecido': '', 'sistema': '', 'medidas': {'altura': 0, 'largura': 0, 'proporcao': 3,'partes': 0, 'metros_lineares': 0}, 'acessorio': {"valor": '', 'descricao': ''}, 'valor': 0, 'qtd': 1};
 export let carrinho: any = [];
 console.log("Database: " + JSON.stringify(db));
 

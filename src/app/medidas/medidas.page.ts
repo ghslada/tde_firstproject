@@ -34,14 +34,14 @@ export class MedidasPage implements OnInit {
     verificaSeLogado(router);
    }
 
-  //SE A ALTURA FOR MAIOR QUE 2.8 o número de partes será pré definido
+  //SE A ALTURA FOR MAIOR QUE 2.7 o número de partes será pré definido
   nroPartes(){
     let cont=1;
-    if(this.Altura>=2.85){
+    if(this.Altura>=2.70){
       let metros = this.Largura*this.Proporcao;
       while(metros>0){
-        metros=metros-2.85;
-        if (metros%2.85>=0){
+        metros=metros-2.70;
+        if (metros%2.70>=0){
           if(metros>0){
             cont++;
           }
@@ -50,14 +50,12 @@ export class MedidasPage implements OnInit {
         }
       }
       this.Partes=cont;
-      this.MetrosLinearesDeTecido=this.Altura*this.Partes*this.Proporcao;
+      this.MetrosLinearesDeTecido=this.Altura*this.Partes;
     }else{
       this.MetrosLinearesDeTecido=this.Largura*this.Proporcao;
     }
-    // alert(`Nmr de partes: ${this.Partes}`);
-    // this.Partes=cont;
-    if(this.MetrosLinearesDeTecido && this.Altura){
-        alert(this.Partes);
+    if(this.MetrosLinearesDeTecido && this.Altura && this.Partes && this.Proporcao){
+        alert("Sua cortina será dividida em "+this.Partes+" partes.");
     }
   }
 

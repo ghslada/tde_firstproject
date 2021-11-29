@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
         const uid = user.uid;
         const local = 'tabs/tabProdutos';
         if(user.uid){
-          this.router.navigate(['tabs/', 'tabProdutos']);
+          this.router.navigate(['tabs/', 'tabTipoCortina']);
         }else{
           // console.log("Você não está logado.");
         }
@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
       // Signed in
       const user = userCredential.user;
       const local = 'tabs/tabProdutos';
-      this.router.navigate(['tabs/', 'tabProdutos']);
+      this.router.navigate(['tabs/', 'tabTipoCortina']);
     })
     .catch((error) => {
       const errorCode = error.code;

@@ -7,11 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { ProdutosComponent } from '../componente-produto/produtos.component';
 import { TipoSistemaComponent } from '../componente-tipo-sistema/componente-tipo-sistema.component';
 import { CarrinhoComponent } from '../componente-carrinho/carrinho.component';
+import { CAcessorioComponent } from '../c-acessorio/c-acessorio.component';
 
 
 @NgModule({
     imports: [CommonModule, FormsModule, IonicModule],
-    declarations: [ TipoSistemaComponent, ProdutosComponent, CarrinhoComponent],
-    exports: [TipoSistemaComponent, ProdutosComponent, CarrinhoComponent]
+    declarations: [ TipoSistemaComponent, ProdutosComponent, CarrinhoComponent, CAcessorioComponent],
+    exports: [TipoSistemaComponent, ProdutosComponent, CarrinhoComponent, CAcessorioComponent]
 })
 export class ComponentsModule {}
