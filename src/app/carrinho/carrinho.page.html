@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+  <!-- <h3 *ngIf="this.produtos?.lenght===0">Nenhum produto no carrinho</h3> -->
   <app-c-carrinho *ngFor="let it of produtos" 
     Tecido={{it.tecido}}
     Acessorio={{it.acessorio.descricao}}
@@ -20,6 +21,10 @@
     Id={{it.id}}
     >
   </app-c-carrinho>
+  <div *ngIf="!this.produtos[0]" class="ion-text-center">
+    <br> <br> <br>
+    <h3 class="justify-content-center">Nenhum item no carrinho</h3>
+  </div>
 
 
   <!-- <ion-card class="card-border">

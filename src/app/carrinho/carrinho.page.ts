@@ -45,21 +45,20 @@ export class CarrinhoPage implements OnInit {
     // this.onChange();
     
     onAuthStateChanged(auth, async (UserCredential) => {
-      await this.onChange(auth.currentUser);
+      if(auth.currentUser){
+        await this.onChange(auth.currentUser);
+      }
     });
 
     // await this.getCarrinho();
     // await this.onChange();
-
-
-    
    }
 
    async onChange(currentUser){
     await this.getCarrinho(auth);
-    const unsub = onSnapshot(doc(db, "carrinho", currentUser.uid), async (doc) => {
-      console.log("Current data: ", doc.data());
-    });
+    // onSnapshot(doc(db, "carrinho", currentUser.uid), async (doc) => {
+    //   console.log("Current data: ", doc.data());
+    // });
    }
 
    async getCarrinho(auth: Auth) {

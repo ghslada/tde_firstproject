@@ -1,3 +1,4 @@
+import { UserCredential } from 'firebase/auth';
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/dot-notation */
@@ -30,21 +31,22 @@ export class EditarCadastroPage implements OnInit {
   constructor(router: Router) {
     verificaSeLogado(router);
     this.getUserData(db);
+
+    onAuthStateChanged(auth, async (UserCredential) => {
+      await this.getUserData(db);
+    });
    }
 
   async updateDadosDoUser(){
     const usuario = doc(db,'usuarios', auth.currentUser.uid);
     await setDoc(usuario, {
       nome: this.Nome,
-      email: this.Email,
-      senha: this.Senha,
       dataNasc: this.DataNasc,
       endereco: this.Endereco,
       cep: this.Cep,
-      estado: this.Estado,
-      cpf: this.Cpf     
-    }).then((dossc) => {
-      const local = 'tabs/tabProdutos';
+      estado: this.Estado    
+    }, { merge: true }).then((dossc) => {
+      const local = 'tabs/tabPerfil';
       window.location.href=local;
     }).catch(err => alert(err));
   }

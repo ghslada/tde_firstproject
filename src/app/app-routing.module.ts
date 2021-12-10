@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'editar-cadastro',
     loadChildren: () => import('./editar-cadastro/editar-cadastro.module').then( m => m.EditarCadastroPageModule)
+  },
+  {
+    path: 'redefinir-senha',
+    loadChildren: () => import('./redefinir-senha/redefinir-senha.module').then( m => m.RedefinirSenhaPageModule)
   }
 ];
 @NgModule({

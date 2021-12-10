@@ -1,5 +1,5 @@
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 /* eslint-disable @typescript-eslint/no-shadow */
-import { isDefined } from '@angular/compiler/src/util';
 /* eslint-disable max-len */
 /* eslint-disable no-var */
 /* eslint-disable @typescript-eslint/quotes */
@@ -12,9 +12,7 @@ import { isDefined } from '@angular/compiler/src/util';
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { isEmpty } from '@firebase/util';
-import { Auth, onAuthStateChanged } from 'firebase/auth';
-import { auth, carrinho, produto, verificaSeLogado } from '../firebaseConfig';
+import { auth, carrinho, db, produto, verificaSeLogado } from '../firebaseConfig';
 
 @Component({
   selector: 'app-medidas',
@@ -79,7 +77,10 @@ export class MedidasPage implements OnInit {
     }catch(err){
       console.log(err);
     }
+    // await this.setProduto();
   }
+
+  
 
   ngOnInit() {
   }

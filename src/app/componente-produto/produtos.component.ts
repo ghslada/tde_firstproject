@@ -1,8 +1,10 @@
+/* eslint-disable no-trailing-spaces */
 import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
-import { carrinho, produto } from '../firebaseConfig';
+import { auth, carrinho, db, produto } from '../firebaseConfig';
+import { getDoc, doc, setDoc } from 'firebase/firestore';
 // import { fireApp } from '../firebaseConfig';
 // import { getFirestore, Firestore, collection, getDocs } from 'firebase/firestore';
 
@@ -24,13 +26,6 @@ export class ProdutosComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  // produtos = async (db: Firestore) => {
-  //   const produtosCol = collection(db, 'produtos');
-  //   const produtosSnapshot = await getDocs(produtosCol);
-  //   const produtosList = produtosSnapshot.docs.map(doc => doc.data());
-  //   return produtosList;
-  // };
-
   selecionarTecido(){
     this.Tecido = this.Tipo + " - " + this.Cor;
     produto.valor_tecido=this.Valor;
@@ -38,7 +33,10 @@ export class ProdutosComponent implements OnInit {
     produto.url_img= this.Imagem;
     console.log(produto);
     this.router.navigate(['tabs/tabMedidas']);
+    
   }
+
+
 
   ngOnInit() {}
 

@@ -1,3 +1,4 @@
+import { UserCredential } from 'firebase/auth';
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -29,8 +30,8 @@ export class PerfilPage implements OnInit {
 
   constructor(router: Router) {
     verificaSeLogado(router);
-    onAuthStateChanged(auth, () => {
-      this.getUserData(auth.currentUser);
+    onAuthStateChanged(auth, async (UserCredential) => {
+      await this.getUserData(auth.currentUser);
     });
   }
 

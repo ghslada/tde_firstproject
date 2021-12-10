@@ -20,6 +20,9 @@ export class CAcessorioComponent implements OnInit {
   Cor: string;
   @Input()
   Valor: number;
+  @Input()
+  Image_url: string;
+  
   Escolha: string;
 
   // QtdProdutos: any = [];
@@ -49,7 +52,6 @@ export class CAcessorioComponent implements OnInit {
   }
 
  
-
   async setProduto(){
       const carrinho_usuario = doc(db, 'carrinho', auth.currentUser.uid);
       const docsColl = doc(db, 'carrinho', auth.currentUser.uid);

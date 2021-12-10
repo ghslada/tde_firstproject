@@ -61,7 +61,6 @@ export class ProdutosPage implements OnInit {
         });
       }
       console.log(this.Produtos);
-      // snap.map(s => console.log(s.doc.data()));
     }
   }
 
@@ -74,13 +73,9 @@ export class ProdutosPage implements OnInit {
       let index=0;
       citySnapshot.forEach(doc => {
         this.Options.push(doc.data());
-        // let d1 = document.getElementById('mySelect');
-        // console.log(d1);
-        // d1.appendChild();
         index++;
       });
       console.log(this.Produtos);
-      // snap.map(s => console.log(s.doc.data()));
     }
   }
 

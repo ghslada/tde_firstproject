@@ -1,15 +1,14 @@
 
 
 .center{
-    transform: translate(0, 10%);
+    transform: translate(0, 5%);
     background-color: 0,0,0,0;
     margin-right: 20px;
     margin-left: 20px;
 
     .button-cadastro{
         margin-top: 10%;
-        margin-bottom: 100%;
-        float: right;
+        width: max-content;
         border-radius: 10%;
     }
 
@@ -19,6 +18,12 @@
         float: left;
         border-radius: 10%;
     }
+}
+
+.bottom{
+    margin-bottom: 7%;
+    width: max-content;
+    float: right;
 }
 
 .floating-button{

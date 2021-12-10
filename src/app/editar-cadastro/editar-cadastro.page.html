@@ -13,6 +13,7 @@
   </ion-content> 
 </ion-header>
 <ion-content>
+  
   <div class="center">
     <ion-list slot="primary">
 
@@ -32,11 +33,11 @@
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="email@example123" id="email" [(ngModel)]="Email">
+        <ion-input placeholder="email@example123" id="email" [(ngModel)]="Email" readonly>
         </ion-input>
       </ion-item>
 
-      <ion-item>
+      <!-- <ion-item>
         <ion-label>
           Senha: 
         </ion-label>
@@ -44,7 +45,7 @@
       <ion-item>
         <ion-input placeholder="mypassword123" id="senha" [(ngModel)]="Senha">
         </ion-input>
-      </ion-item>
+      </ion-item> -->
 
       <ion-item>
         <ion-label>
@@ -92,17 +93,17 @@
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="103.298.031-01" [(ngModel)]="Cpf">
+        <ion-input placeholder="103.298.031-01" [(ngModel)]="Cpf" readonly>
         </ion-input>
       </ion-item>
 
     </ion-list>
-    <ion-button (click)="updateDadosDoUser()"  class="button-cadastro">Atualizar dados</ion-button>
-    <div>
-      <ion-button routerLink="/tabs/tabPerfil" color="secondary" class="button-apagar">Voltar</ion-button>
-    </div>
   </div>
 </ion-content>
+<ion-button (click)="updateDadosDoUser()"  class="button-cadastro">Atualizar dados</ion-button>
+<div class="bottom">
+</div>
+
 <!-- 
 <div class="floating-button">
 </div> -->

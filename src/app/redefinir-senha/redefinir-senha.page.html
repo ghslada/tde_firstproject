@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-text-center" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login">Voltar</ion-back-button>
+    </ion-buttons>
+    <ion-title>Redefinir senha</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-tabs>
+      <ion-tab-bar class="tab-bar" color="light" slot="fixed">
+      </ion-tab-bar>
+    </ion-tabs>    
+  </ion-content> 
+</ion-header>
+<ion-content>
+  <div class="center" *ngIf="!Mensagem">
+    <div><p>Será enviado um e-mail para redefinição da senha.</p></div>
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          Digite o e-mail que deseja <br> redefinir a senha:
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="email@example123" id="email" [(ngModel)]="Email">
+        </ion-input>
+      </ion-item>
+      <div class="item">
+      </div>
+    </ion-list>
+    <ion-button (click)="redefinirSenha()" slot="end" color="success" class="button-entrar">Enviar e-mail</ion-button>
+  </div>
+</ion-content>
+<ion-content *ngIf="Mensagem" >
+  <p>E-mail de redefinição de senha enviado com sucesso</p>
+</ion-content>
+<!-- 
+<div class="floating-button">
+</div> -->
