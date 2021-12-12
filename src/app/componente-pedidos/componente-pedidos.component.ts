@@ -50,7 +50,7 @@ export class PedidosComponent implements OnInit {
   @Input()
   Index: number;
   @Input()
-  Data: Date;
+  Data: string;
   @Input()
   Imagem: string;
 

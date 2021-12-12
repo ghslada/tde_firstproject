@@ -18,7 +18,15 @@
   <div class="card">
     <div class="header">
       <div class="avatar">
-        <img src="../../assets/img/foto-em-branco.png" alt="">
+        <button>
+          <!-- <img  alt=""> -->
+          <input (change)="arquivoSelecionado($event)" accept="image/png, image/jpg" id="image_input" type="file" style="display: none;">
+          <a (click)="uploadImagem()">
+            <img *ngIf="!this.User[0]" src="../../assets/img/foto-em-branco.png"/>
+            <img *ngIf="this.User[0]" src="{{Url}}"/>
+          </a>
+        </button>
+        
       </div>
     </div>
 

@@ -4,7 +4,8 @@
       <img src="assets/img/cortina.jpg" alt="">
     </ion-avatar> -->
     <ion-label class="ion-text-wrap">
-      <ion-text color="dark"><h3>ID : {{Id}}</h3></ion-text>
+      <ion-text  color="dark"><h3 >ID : {{Id}}</h3> <h3> Data : {{Data}}</h3></ion-text>
+      <!-- <ion-text slot="end" color="dark"></ion-text> -->
       <app-c-produtos-do-pedido *ngFor="let produto of produtosfinal" Imagem={{produto.url_img}} Acessorio={{produto.acessorio.descricao}} Tecido={{produto.tecido}} Altura={{produto.medidas.altura}} Largura={{produto.medidas.largura}} Qtd={{produto.qtd}}>  </app-c-produtos-do-pedido>
       <!-- <p *ngFor="let produto of Produtos" > {{produto.dados_do_pedido}} | {{produto.Tecido}}: <br> A:{{produto.Altura}}m x L:{{produto.Largura}}m - {{produto.Qtd}} Unidades</p> <br> -->
       <!-- <p>{{Acessorio}} | {{Tecido}}: <br> A:{{Altura}}m x L:{{Largura}}m - {{Qtd}} Unidades</p> <br> -->

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable quote-props */
 import { Router } from '@angular/router';
@@ -45,14 +46,21 @@ export class CarrinhoComponent implements OnInit {
   }
 
   async increment(){
+
     const valor_unitario = this.Valor/this.Qtd;
     this.Qtd++;
     const valor=this.Qtd*valor_unitario;
     this.Valor=Number(valor.toFixed(2));
+    if(this.Altura>2.70){
+      // this.Partes=cont;
+      this.Metros=this.Altura*this.Partes*this.Qtd;
+    }else{
+      this.Metros=this.Largura*this.Proporcao*this.Qtd;
+    }
     const id = this.Id;
     const docc = doc(db, 'carrinho', auth.currentUser.uid);
     // setDoc(doc(db, "carrinho", auth.currentUser.uid), {[index]: produto}, {merge: true})
-    await setDoc(docc, { [id]: {qtd: this.Qtd , valor: this.Valor} }, {merge:true} ).then((dossc) => {
+    await setDoc(docc, { [id]: {qtd: this.Qtd , valor: this.Valor, medidas: { metros_lineares: this.Metros} } }, {merge:true} ).then((dossc) => {
       // const local = '/tabs/tabCarrinho';
       // window.location.href=local;
       // this.router.navigate(['tabs/', 'tabCarrinho']);
@@ -61,14 +69,22 @@ export class CarrinhoComponent implements OnInit {
 
   async decrement(){
     if(this.Qtd>1){
+    
       const valor_unitario=this.Valor/this.Qtd;
       const valor=this.Valor-valor_unitario;
       this.Valor=Number(valor.toFixed(2));
+
       this.Qtd--;
+      if(this.Altura>2.70){
+        // this.Partes=cont;
+        this.Metros=this.Altura*this.Partes*this.Qtd;
+      }else{
+        this.Metros=this.Largura*this.Proporcao*this.Qtd;
+      }
       const id = this.Id;
       const docc = doc(db, 'carrinho', auth.currentUser.uid);
       // setDoc(doc(db, "carrinho", auth.currentUser.uid), {[index]: produto}, {merge: true})
-      await setDoc(docc, { [id]: {qtd: this.Qtd , valor: this.Valor} }, {merge:true} ).then((dossc) => {
+      await setDoc(docc, { [id]: {qtd: this.Qtd , valor: this.Valor, medidas: { metros_lineares: this.Metros} } }, {merge:true} ).then((dossc) => {
         // const local = '/tabs/tabCarrinho';
         // window.location.href=local;
         // this.router.navigate(['tabs/', 'tabCarrinho']);

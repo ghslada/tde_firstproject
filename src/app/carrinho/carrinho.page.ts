@@ -103,12 +103,24 @@ export class CarrinhoPage implements OnInit {
   async setPedido(){
       pedido.idpedido= await this.getLastPedido();
       let cont=0;
+      const date = new Date();
+      let dataFormatada = '';
+      if (date.getMinutes()>9) {
+        dataFormatada = date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear()+' - '+date.getHours()+':'+date.getMinutes();
+      }else{
+        dataFormatada = date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear()+' - '+date.getHours()+':'+'0'+date.getMinutes();
+      } 
+        
+      console.log(dataFormatada); 
       this.produtos.forEach(produto => {
         pedido.dados_do_pedido.push(produto);
         pedido.dados_do_pedido[cont].id=pedido.idpedido;
+        pedido.data=dataFormatada;  
         cont++;   
       });
-      // pedido.idpedido=cont;     
+      // pedido.idpedido=cont;
+
+         
       console.log(pedido);
       const index = pedido.idpedido;
       await setDoc(doc(db, 'pedidos', auth.currentUser.uid), {[index]: pedido}, {merge: true}).then(async () =>
@@ -188,7 +200,7 @@ export class CarrinhoPage implements OnInit {
       onAuthStateChanged(auth, async () => {
 
 
-      // if (auth.currentUser) {
+      if (auth.currentUser) {
         const unsub = onSnapshot(doc(db, 'carrinho', auth.currentUser.uid), async (doc) => {
           console.log("Current data: ", doc.data());
           await this.onChange(auth);
@@ -208,9 +220,7 @@ export class CarrinhoPage implements OnInit {
           }, 500);
         });
 
-      // }else{
-      //   await this.getCarrinho();
-      // }
+      }
       
     });
   }
