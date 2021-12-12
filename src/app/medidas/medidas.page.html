@@ -21,9 +21,13 @@
   <div class="center">
     <ion-list>
       <ion-item>
-        <ion-label>
-          Altura: (altura do varão +3cm <br> ou altura do trilho -1cm)
+        <ion-label *ngIf=" this.Tipo==='Deslizante - trilho max' "  style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          Altura: (altura do chão até o fim do trilho <br>-1cm)
         </ion-label>
+        <ion-label *ngIf=" this.Tipo==='Ilhós - varão' "  style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          Altura: (altura do chão até o fim do varão <br>+3cm)
+        </ion-label>
+
       </ion-item>
       <ion-item>
         <ion-input (change)="nroPartes()" type="number" placehoder="example123@login.com" [(ngModel)]="Altura">
@@ -32,9 +36,12 @@
       <div class="item">
       </div>
       <ion-item>
-        <ion-label>
-          Largura: (largura desejada do varão <br> ou trilho)
+        <ion-label *ngIf=" this.Tipo==='Ilhós - varão' "  style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          Largura: (largura do varão)
         </ion-label>
+        <ion-label *ngIf=" this.Tipo==='Deslizante - trilho max' "  style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          Largura: (largura do trilho)
+        </ion-label>        
       </ion-item>
       <ion-item>
         <ion-input (change)="nroPartes()" type="number" placehoder="example123@login.com" [(ngModel)]="Largura">
@@ -43,7 +50,7 @@
       <div class="item">
       </div>
       <ion-item>
-        <ion-label>
+        <ion-label style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> 
           Proporção: (padrão 3x1: 3m de tecido
                       <br> para cada 1m de trilho)
         </ion-label>
@@ -55,8 +62,8 @@
         <div class="item">
       </div>
       <ion-item>
-        <ion-label class="ion-text-center">
-          Partes: (Em quantas partes deseja que a <br> largura seja dividida. <br><b>OBS: </b> Alturas maiores que 2.70m não é <br> possível escolher o número de partes.
+        <ion-label class="ion-text-center" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          Partes: (Em quantas partes deseja que a <br> largura informada seja dividida.) <br><b>OBS: </b> Alturas maiores que 2.70m não é <br> possível escolher o número de partes.
         </ion-label>
           </ion-item>
           <ion-item>
@@ -69,5 +76,5 @@
 
 <div class="floating-button">
   <!-- routerLink="../tabAcessorio" -->
-  <ion-fab-button class="button-acessorio" color="success" (click)="setMedidas()">Acessório</ion-fab-button>
+  <ion-fab-button class="button-acessorio" color="success" (click)="setMedidas()">Próximo</ion-fab-button>
 </div>

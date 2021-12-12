@@ -15,8 +15,7 @@
 <ion-content>
   
   <div class="center">
-    <ion-list slot="primary">
-
+    <ion-list>
       <ion-item>
         <ion-label>
           Nome:
@@ -97,13 +96,12 @@
         </ion-input>
       </ion-item>
 
-    </ion-list>
+    </ion-list>  
+    <div class="floating-button">
+      <!-- routerLink="../tabAcessorio" -->
+      <ion-fab-button (click)="updateDadosDoUser()"  class="button-cadastro mb-1">Atualizar meus dados</ion-fab-button>
+    </div>
+    <br>
   </div>
-</ion-content>
-<ion-button (click)="updateDadosDoUser()"  class="button-cadastro">Atualizar dados</ion-button>
-<div class="bottom">
-</div>
 
-<!-- 
-<div class="floating-button">
-</div> -->
+</ion-content>

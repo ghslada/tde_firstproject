@@ -39,7 +39,8 @@ export class CAcessorioComponent implements OnInit {
     await this.setProduto();
     console.log(produto);
     const local = '/tabs/tabCarrinho';
-    window.location.href=local;
+    // window.location.href=local;
+    // this.router.navigate(['tabs/', 'tabCarrinho']);
 }
 
   async definirValorDoProduto(){
@@ -59,6 +60,8 @@ export class CAcessorioComponent implements OnInit {
       const index = produto.id;
       await setDoc(doc(db, "carrinho", auth.currentUser.uid), {[index]: produto}, {merge: true}).then((dossc) => {
         console.log('Carrinho atualizado.');
+        this.router.navigate(['tabs/', 'tabCarrinho']);
+
       }).catch(err => alert(err));
   }
 
@@ -67,17 +70,22 @@ export class CAcessorioComponent implements OnInit {
     const docc = await getDoc(doccc);
     const produtos: any = [];
     produtos.push(docc.data());
-    const tot = this.getSize(produtos[0]);
-    const key = this.getKeys(produtos[0]);
-    console.log(key);
-    if(key[0]){
-      const l = Number(key[tot-1]);
-      const i = l+1;
-      return i;
+    if (produtos[0]) {
+      const tot = this.getSize(produtos[0]);
+      const key = this.getKeys(produtos[0]);
+      console.log(key);
+      if(key[0]){
+        const l = Number(tot+1);
+        // const i = l+1;
+        return l;
+      }else{
+        const i = 1;
+        return i;
+      }
     }else{
-      const i = 0;
-      return i;
+      return 1;
     }
+ 
 
   }
 

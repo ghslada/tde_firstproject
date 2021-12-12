@@ -7,6 +7,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { auth, fireApp } from "../firebaseConfig";
 import { Router } from "@angular/router";
 import { isNull } from "@angular/compiler/src/output/output_ast";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -18,13 +19,14 @@ export class LoginPage implements OnInit {
   Email: string;
   Senha: string;
   User: UserCredential;
+  Ob: Observable<any>;
 
   constructor(private router: Router) {
     this.verificaLogin();
    }
 
   verificaLogin(){
-    onAuthStateChanged(auth, (user) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -40,6 +42,19 @@ export class LoginPage implements OnInit {
         // User is signed out
         // ...
       }
+    });
+    this.Ob = new Observable(subscriber => {
+      subscriber.next(unsub.length);
+    });
+    this.Ob.subscribe((data) => {
+      setInterval(() => {
+        if(data!==unsub.length){
+          // console.log('O valor do elemento observado mudou');
+          this.verificaLogin();
+          // console.log("valor mudou");
+          data=unsub.length;
+        }
+      }, 200);
     });
   }
 

@@ -1,23 +1,29 @@
 <ion-card (click)="selecionarTecido()" class="card-border">
   <ion-item>
-    <ion-avatar slot="start" style="width: 100px; height: 150px;">
+    <ion-avatar slot="start" style="width: 150px; height: 225px;">
       <img src="{{Imagem}}" alt="">
     </ion-avatar>
     <ion-label class="ion-text-wrap">
+      <ion-text>
+        <ion-card-content>
+          <h3 *ngIf="Estoque>=21"> <b style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{Estoque}} metros em estoque.</b></h3>
+          <h3  *ngIf="Estoque<=20" >  <b style="color: red; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">APENAS {{Estoque}} metros</b> <b> em estoque.</b> </h3>
+        </ion-card-content>
+      </ion-text>
       <ion-text color="dark">
-        <h3><b>{{Tipo}}</b></h3>
+        <h3><b style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{Tipo}}</b></h3>
         <br>
-        <h5><b>{{Cor}}</b></h5> 
+        <h5><b style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{Cor}}</b></h5> 
         <br>
         
-        <h5>{{Descricao}}</h5>
+        <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{Descricao}}</h5>
         <!-- <h5>Tecido leve, com bom caímento, torna o ambiente agradável permitindo a entrada da luz natural</h5> -->
         <br>
       </ion-text>
       <ion-text>
         <h4>Valor (metro linear) :</h4> <br>
         <ion-card-content>
-          <h3 style="font-size: 140%">{{Valor}} R$</h3>
+          <h3 style="font-size: 140%;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{Valor}} R$</h3>
         </ion-card-content>
       </ion-text>
     </ion-label>

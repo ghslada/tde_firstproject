@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable max-len */
 /* eslint-disable quote-props */
@@ -35,6 +36,9 @@ export const db = getFirestore(fireApp);
 export const auth = getAuth(fireApp);
 export let produto: any = {'id': 1, 'url_img': '', 'valor_tecido': 0, 'tecido': '', 'sistema': '', 'medidas': {'altura': 0, 'largura': 0, 'proporcao': 3,'partes': 0, 'metros_lineares': 0}, 'acessorio': {"valor": '', 'descricao': ''}, 'valor': 0, 'qtd': 1};
 export let carrinho: any = [];
+export let pedido: any = {'idpedido': 1, 'dados_do_pedido': []};
+// {'id': 1, 'url_img': '', 'valor_tecido': 0, 'tecido': '', 'sistema': '', 'medidas': {'altura': 0, 'largura': 0, 'proporcao': 3,'partes': 0, 'metros_lineares': 0}, 'acessorio': {"valor": '', 'descricao': ''}, 'valor': 0, 'qtd': 1}/
+
 console.log("Database: " + JSON.stringify(db));
 
 export const verificaSeLogado = (router: Router) =>{

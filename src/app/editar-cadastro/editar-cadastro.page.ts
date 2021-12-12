@@ -32,9 +32,8 @@ export class EditarCadastroPage implements OnInit {
     verificaSeLogado(router);
     this.getUserData(db);
 
-    onAuthStateChanged(auth, async (UserCredential) => {
-      await this.getUserData(db);
-    });
+   
+
    }
 
   async updateDadosDoUser(){
@@ -78,7 +77,10 @@ export class EditarCadastroPage implements OnInit {
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const unsub = onAuthStateChanged(auth, async (UserCredential) => {
+      await this.getUserData(db);
+    });
   }
 
 }

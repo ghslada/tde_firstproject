@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
@@ -11,12 +12,13 @@ import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 })
 export class RedefinirSenhaPage implements OnInit {
   Email: string;
-  Mensagem = false;
+  Mensagem: boolean;
   constructor() { }
 
   redefinirSenha(){
     
     const auth = getAuth();
+    this.Mensagem=false;
     sendPasswordResetEmail(auth, this.Email)
       .then(() => {
         // Password reset email sent!
@@ -26,6 +28,7 @@ export class RedefinirSenhaPage implements OnInit {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        alert("Erro: "+error.code);
         // ..
       });
   }

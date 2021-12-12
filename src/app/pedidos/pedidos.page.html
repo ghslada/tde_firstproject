@@ -4,22 +4,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card class="card-border">
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/img/cortina.jpg" alt="">
-      </ion-avatar>
-      <ion-label class="ion-text-wrap">
-        <ion-text color="dark"><h3>ID : 1238998</h3></ion-text>
-        <p>Cortina - Ilhós cromado - Tecido voil branco: <br> 4,47m x 2,77m - 2 Unidades</p> <br>
-        <p>Cortina - Ilhós cromado - Tecido forro bége: <br> 4,47m x 2,77m - 2 Unidades</p>
-      </ion-label>
-      <ion-button color="warning" fill="clear">
-        <ion-icon size="large" name="checkmark-circle-outline" color="success"></ion-icon>
-      </ion-button>
-    </ion-item>
-      <ion-card-content>
-        <ion-button size="small" fill="outline" slot="end" color="primary">Ver Detalhes</ion-button>
-      </ion-card-content>
-  </ion-card>
+  <!-- <div *ngFor="let pollData of pedidosfinal ; let i index" >             -->
+    <!-- <app-pollinfo [masterArray]="i"></app-pollinfo> -->
+    <div *ngIf="!this.pedidosfinal[0]" class="ion-text-center">
+      <br> <br> <br>
+      <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="justify-content-center">Você ainda não realizou nenhum pedido.</h3>
+    </div>
+    <app-componente-pedidos *ngFor="let pedido of pedidosfinal; let i index" Image={{pedido.url_img}} Index={{pedido.idpedido}} Id={{pedido.idpedido}}></app-componente-pedidos>
+  <!-- </div> -->
 </ion-content>

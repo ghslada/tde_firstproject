@@ -21,6 +21,24 @@
     }
 }
 
+
+.center{
+    transform: translate(0, 25%);
+}
+
 .floating-button{
-    background-color: rgba($color: #000000, $alpha: 0);
+    margin-right: 20px;
+
+    .button-next{
+        margin-bottom: 10%;
+        float: right;
+        border-radius: 10%;
+        // width: 200px;
+    }
+    .button-acessorio{
+        margin-bottom: 10%;
+        float: right;
+        border-radius: 10%;
+        width: 150px;
+    }
 }

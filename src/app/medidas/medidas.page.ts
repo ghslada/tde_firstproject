@@ -13,6 +13,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { auth, carrinho, db, produto, verificaSeLogado } from '../firebaseConfig';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-medidas',
@@ -26,6 +27,9 @@ export class MedidasPage implements OnInit {
   Partes: number ;
   Medidas: any = [];
   MetrosLinearesDeTecido: number;
+
+  Observabllle: Observable<any>;
+  Tipo: string;
 
   constructor(private router: Router) {
     console.log(carrinho);
@@ -52,8 +56,9 @@ export class MedidasPage implements OnInit {
     }else{
       this.MetrosLinearesDeTecido=this.Largura*this.Proporcao;
     }
-    if(this.MetrosLinearesDeTecido && this.Altura && this.Partes && this.Proporcao){
+    if(this.MetrosLinearesDeTecido && this.Altura && this.Partes && this.Proporcao && this.Largura){
         alert("Sua cortina será dividida em "+this.Partes+" partes.");
+        
     }
   }
 
@@ -64,13 +69,20 @@ export class MedidasPage implements OnInit {
       }else{
         //VERIFICA SE TODOS OS CAMPOS FORAM INFORMADOS.
         if (this.Altura && this.Largura && this.Proporcao && this.Partes){
-          produto.medidas.altura=this.Altura;
-          produto.medidas.largura=this.Largura;
-          produto.medidas.proporcao=this.Proporcao;
-          produto.medidas.partes=this.Partes;
-          produto.medidas.metros_lineares=this.MetrosLinearesDeTecido;
-          console.log(produto);
-          this.router.navigate(['tabs/', 'tabAcessorio']);
+
+          if (this.Proporcao*this.Largura/this.Partes<=0.5) {
+            alert("Cada parte da cortina deve ter no mínimo 40cm.");
+          }else{
+            produto.medidas.altura=this.Altura;
+            produto.medidas.largura=this.Largura;
+            produto.medidas.proporcao=this.Proporcao;
+            produto.medidas.partes=this.Partes;
+            produto.medidas.metros_lineares=this.MetrosLinearesDeTecido;
+            console.log(produto);
+            this.router.navigate(['tabs/', 'tabAcessorio']);
+          }
+        }else{
+          alert("Todos os campos são obrigatórios.");
         }
       }
 
@@ -80,9 +92,35 @@ export class MedidasPage implements OnInit {
     // await this.setProduto();
   }
 
+  async observarModificacoesDoTipoDeSistema(){
+
+    this.Observabllle = new Observable(subscriber => {
+      // console.log("Hello world");
+      this.Tipo=produto.sistema;
+      subscriber.next(produto.sistema);
+    });
+
+    setInterval(async () => {
+      this.Observabllle.subscribe(x => {
+
+          if(x!==produto.sistema){
+            console.log(x);
+            this.Tipo=x;
+            x=produto.sistema;
+          }
+
+          // console.log("completed");
+
+
+      });
+    }, 200);
+
+  }
+
   
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.observarModificacoesDoTipoDeSistema();
   }
 
 }

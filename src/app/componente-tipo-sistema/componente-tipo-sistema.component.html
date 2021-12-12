@@ -1,14 +1,16 @@
-<ion-card (click)="selecionarTipo()" class="card-border">
-  <ion-item>
-    <ion-label class="ion-text-wrap">
-      <ion-text color="dark ion-text-center">
-        <h3><b>{{Tipo}}</b></h3>
-      </ion-text>
-      <ion-text>
-      </ion-text>
-    </ion-label>
-  </ion-item>
-  <ion-item  >
-    <img class="image" src="{{Imagem}}" alt="">
-  </ion-item>
-</ion-card>
+<ion-card color="blue" (click)="selecionarTipo()" style="background-color: #3880ff" class="card-border">
+  <div >
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-text color="dark ion-text-center">
+          <h3><b style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{Tipo}}</b></h3>
+        </ion-text>
+        <ion-text>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item  >
+      <img class="image" src="{{Imagem}}" alt="">
+    </ion-item>
+  </div>
+  </ion-card>

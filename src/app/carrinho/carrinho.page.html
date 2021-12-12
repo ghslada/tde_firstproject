@@ -23,44 +23,10 @@
   </app-c-carrinho>
   <div *ngIf="!this.produtos[0]" class="ion-text-center">
     <br> <br> <br>
-    <h3 class="justify-content-center">Nenhum item no carrinho</h3>
+    <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="justify-content-center">Nenhum item no carrinho</h3>
   </div>
-
-
-  <!-- <ion-card class="card-border">
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/img/cortina.jpg" alt="">
-      </ion-avatar>
-      <ion-label class="ion-text-wrap">
-        <ion-button class="right" color="warning" fill="clear">
-          <ion-icon size="large" name="close-circle-outline" color="danger"></ion-icon>
-        </ion-button> 
-        <b>Tecido voil branco - Ilhós cromado</b>    
-        <br>
-      </ion-label>
-    </ion-item>
-    <ion-item class="right">
-      <ion-label class="ion-text-wrap">
-        <b>4,47m x 2,77m</b> <br>
-        <b>9m lineares de tecido</b> <br>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label class="ion-text-wrap">
-        <b>Valor: R$</b> <br>
-      </ion-label>
-    </ion-item>
-      <ion-card-content>
-        <ion-button size="small" slot="end" color="white">
-          <ion-icon size="large" name="add-circle-outline" color="success"></ion-icon>
-        </ion-button>
-        <ion-button size="small" slot="end" color="white">
-          <ion-icon size="large" name="remove-circle-outline" color="warning"></ion-icon>
-        </ion-button>
-        <ion-label class="qtd">
-          <ion-text><b>2 </b>unidades</ion-text>
-        </ion-label>
-      </ion-card-content>
-  </ion-card> -->
 </ion-content>
+<div *ngIf="this.produtos[0]" class="floating-button">
+  <!-- routerLink="../tabAcessorio" -->
+  <ion-fab-button class="button-acessorio" color="success" (click)="setPedido()">Finalizar compra</ion-fab-button>
+</div>

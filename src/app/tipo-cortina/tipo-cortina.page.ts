@@ -8,6 +8,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { Component, OnInit } from '@angular/core';
 import { auth, db, verificaSeLogado } from '../firebaseConfig';
 import { Auth, onAuthStateChanged } from 'firebase/auth';
+  // eslint-disable-next-line quote-props
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,7 +26,7 @@ export class TipoCortinaPage implements OnInit{
   Imagem: string;
 
   Escolha: number;
-  // eslint-disable-next-line quote-props
+
   // tipos=[{nome : 'ilhos', texto: 'Varão com ilhós' , 'imagesrc' :'assets/img/ilhos.png'}];
 
   Sistemas: any = [];

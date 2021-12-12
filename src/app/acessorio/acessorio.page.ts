@@ -1,16 +1,18 @@
+/* eslint-disable prefer-const */
+import { Observable, of, Subscriber } from 'rxjs';
+
+import { map } from 'rxjs/operators';
 /* eslint-disable @angular-eslint/use-lifecycle-interface */
-import { UserCredential } from 'firebase/auth';
-import { Subject } from 'rxjs';
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable @typescript-eslint/no-shadow */
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth, onAuthStateChanged } from 'firebase/auth';
-import { collection, getDoc, getDocs, query, where, onSnapshot } from 'firebase/firestore';
+import { collection, getDocs, query, where  } from 'firebase/firestore';
 import { auth, db, produto, verificaSeLogado } from '../firebaseConfig';
 
 @Component({
@@ -26,7 +28,7 @@ export class AcessorioPage implements OnInit {
 
   Acessorios: any = [];
   Sistema: string;
-  Ob: Subject<any>;
+  Ob: Observable<any>;
 
 
   constructor(private router: Router) {
@@ -53,18 +55,47 @@ export class AcessorioPage implements OnInit {
     if (citySnapshot.empty) {
       console.log("Firestore vazio.");
     }else{
+      this.Acessorios=[];
       citySnapshot.docs.forEach(doc => {
         // console.log(doc.data());
         this.Acessorios.push(doc.data());
+        console.log(this.Acessorios);
 
     });
-    
-      console.log(this.Acessorios);
+      
     }
   }
 
+      
+    //Observa as mudanças no tipo de sistema selecionado para exibir
+    //o novo tipo de sistema escolhido.
+  async observarModificacoesDoTipoDeSistema(){
+
+    this.Ob = new Observable(subscriber => {
+      // console.log("Hello world");
+      subscriber.next(produto.sistema);
+    });
+
+    this.Ob.subscribe(x => {
+      setInterval(async () => {
+        if(x!==produto.sistema){
+          console.log(x);
+          await this.getAcessorios();
+          x=produto.sistema;
+        }
+
+        // console.log("completed");
+      }, 1000);
+    });
+  }
+
   async ngOnInit() {
+    await this.observarModificacoesDoTipoDeSistema();
     await this.getAcessorios();
+
+
+
   }
   
 }
+

@@ -1,0 +1,19 @@
+<ion-card class="card-border">
+  <ion-item>
+    <!-- <ion-avatar slot="start">
+      <img src="assets/img/cortina.jpg" alt="">
+    </ion-avatar> -->
+    <ion-label class="ion-text-wrap">
+      <ion-text color="dark"><h3>ID : {{Id}}</h3></ion-text>
+      <app-c-produtos-do-pedido *ngFor="let produto of produtosfinal" Imagem={{produto.url_img}} Acessorio={{produto.acessorio.descricao}} Tecido={{produto.tecido}} Altura={{produto.medidas.altura}} Largura={{produto.medidas.largura}} Qtd={{produto.qtd}}>  </app-c-produtos-do-pedido>
+      <!-- <p *ngFor="let produto of Produtos" > {{produto.dados_do_pedido}} | {{produto.Tecido}}: <br> A:{{produto.Altura}}m x L:{{produto.Largura}}m - {{produto.Qtd}} Unidades</p> <br> -->
+      <!-- <p>{{Acessorio}} | {{Tecido}}: <br> A:{{Altura}}m x L:{{Largura}}m - {{Qtd}} Unidades</p> <br> -->
+    </ion-label>
+    <ion-button color="warning" fill="clear">
+      <ion-icon size="large" name="checkmark-circle-outline" color="success"></ion-icon>
+    </ion-button>
+  </ion-item>
+    <ion-card-content>
+      <ion-button size="small" fill="outline" slot="end" color="primary">Ver Detalhes</ion-button>
+    </ion-card-content>
+</ion-card>

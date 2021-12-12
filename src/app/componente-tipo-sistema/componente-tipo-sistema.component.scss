@@ -7,18 +7,21 @@ ion-text{
     }
 }
 
-.cards{
+
     .card-border{
-        padding: 20px;
-        max-width: 350px;
-        max-height: 250px;
-        min-width: 350px;
-        min-height: 250px;
-        border: thin solid #000; 
-        margin-right: 50px;
+        border: solid thin grey;
+        background-color: var(--ion-color-primary, #3880ff);
+        margin-top: 25px;
+        margin-right: 25px;
+        margin-left: 25px;
         
     }
-}
+    
+// .card-border{
+//     border: solid thin grey;
+// }
+
+
 
 .image{
 
@@ -29,6 +32,8 @@ ion-text{
     min-width: 350px;
     min-height: 250px;
     width: fit-content;
+    border-top: 10px solid rgb(141, 141, 141);
+    border-bottom: 10px solid rgb(141, 141, 141);
 }
 
 // .button-type{

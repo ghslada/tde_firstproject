@@ -23,6 +23,8 @@ export class ProdutosComponent implements OnInit {
   @Input() Valor: number;
   @Input()
   Tecido: string;
+  @Input()
+  Estoque: number;
 
   constructor(private router: Router) { }
 
