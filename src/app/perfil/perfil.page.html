@@ -22,8 +22,8 @@
           <!-- <img  alt=""> -->
           <input (change)="arquivoSelecionado($event)" accept="image/png, image/jpg" id="image_input" type="file" style="display: none;">
           <a (click)="uploadImagem()">
-            <img *ngIf="!this.User[0]" src="../../assets/img/foto-em-branco.png"/>
-            <img *ngIf="this.User[0]" src="{{Url}}"/>
+            <img *ngIf="!this.Url" class="image" src="../../assets/img/foto-em-branco.png"/>
+            <img *ngIf="this.Url" class="image" src="{{Url}}"/>
           </a>
         </button>
         

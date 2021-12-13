@@ -50,7 +50,7 @@ export class PerfilPage implements OnInit {
     });
     this.Ob.subscribe(subscript => {
       setInterval(() => {
-        if(subscript!=unsub.length){
+        if(subscript!==unsub.length){
           console.log(subscript);
           console.log('Dados do usuário foram alterados.');
           subscript=unsub.length;
@@ -62,6 +62,7 @@ export class PerfilPage implements OnInit {
   logout(){
     auth.signOut().then(() => {
       // alert('Loged out');
+      window.location.href='login';
     }).catch(error => {
       alert('Recarregue a pagina, erro: '+ error.message);
     });

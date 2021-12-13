@@ -23,6 +23,13 @@ ion-toolbar{
     --background: transparent;
 }
 
+.image{
+    max-width: 160px;
+    max-height: 160px;
+    min-width: 160px;
+    min-height: 160px;
+}
+
 .card{
     margin: 20% auto auto auto;
     border-radius: 10px;
